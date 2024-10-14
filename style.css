@@ -14,10 +14,12 @@
     background-color: black;
 }
 
-
+/* рабский контейнер сайта */
 .slave-container{
     display: flex;
     position: relative;
     right: 0;
+    /* height = slaveContainerHeight + 'px' */
+    /* width = slaveContainerWidth + 'px' */
     background-color: rgb(204, 245, 2);
 }
