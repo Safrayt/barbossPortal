@@ -1,0 +1,23 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;  
+}
+
+
+/* главный контейнер сайта */
+.main-container {
+    margin: 0 auto;
+    /* height = mainContainerHeight + 'px' */
+    /* width = mainContainerWidth + 'px' */
+    background-color: black;
+}
+
+
+.slave-container{
+    display: flex;
+    position: relative;
+    right: 0;
+    background-color: rgb(204, 245, 2);
+}
