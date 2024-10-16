@@ -4,14 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main-screen.css">
 </head>
 <body>
     <!-- главный контейнер сайта -->
     <div class="main-container">
         <div class="slave-container">
-            <button class="click" onclick="navButtonForward()">1111</button>
-            <button class="click" onclick="navButtonBack()">2222</button>
+            <section id="main-screen" class="screen">
+                <div id="main-screen-header" class="screen-header">
+                    <h1 id="main-screen-header-title">SWT "BarBosS"</h1>
+                </div>
+                <div id="main-screen-logo"></div>
+                <div id="main-screen-buttons">
+                    <button class="main-screen-buttons-button" onclick="navButtonForward()">1111</button>
+                    <button class="main-screen-buttons-button" onclick="navButtonForward()">2222</button>
+                    <button class="main-screen-buttons-button" onclick="navButtonForward()">3333</button>
+                    <button class="main-screen-buttons-button" onclick="navButtonForward()">4444</button>
+                </div>
+            </section>
         </div>
     </div>
     <script src="script.js"></script>
