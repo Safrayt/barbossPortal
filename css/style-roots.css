@@ -1,0 +1,55 @@
+:root {
+    /* ширина экрана  */
+    /* document.documentElement.style.setProperty('--site-width-100', siteWidth*1 + 'px'); */
+    --site-width-100: 0;
+    --site-width-95: 0;
+    --site-width-90: 0;
+    --site-width-85: 0;
+    --site-width-80: 0;
+    --site-width-75: 0;
+    --site-width-70: 0;
+    --site-width-65: 0;
+    --site-width-60: 0;
+    --site-width-55: 0;
+    --site-width-50: 0;
+    --site-width-45: 0;
+    --site-width-40: 0;
+    --site-width-35: 0;
+    --site-width-30: 0;
+    --site-width-25: 0;
+    --site-width-20: 0;
+    --site-width-15: 0;
+    --site-width-10: 0;
+    --site-width-5: 0;
+
+    /* высота экрана */
+    --site-height-100: 0;
+    --site-height-95: 0;
+    --site-height-90: 0;
+    --site-height-85: 0;
+    --site-height-80: 0;
+    --site-height-75: 0;
+    --site-height-70: 0;
+    --site-height-65: 0;
+    --site-height-60: 0;
+    --site-height-55: 0;
+    --site-height-50: 0;
+    --site-height-45: 0;
+    --site-height-40: 0;
+    --site-height-35: 0;
+    --site-height-30: 0;
+    --site-height-25: 0;
+    --site-height-225: 0;
+    --site-height-20: 0;
+    --site-height-15: 0;
+    --site-height-10: 0;
+    --site-height-5: 0;
+
+
+    --header-font-size-008: 0;
+    --header-font-size-010: 0;
+    --header-font-family: "Roboto", sans-serif;
+    --header-font-weight: 700;
+    --header-font-style: normal;
+  }
+

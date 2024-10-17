@@ -41,13 +41,63 @@ function containersAndScreensSizes() {
     document.querySelector('.slave-container').style.width = slaveContainerWidth + 'px'
 
 // размеры всех экранов
-    document.querySelector('.screen').style.height = window.innerHeight + 'px'
-    document.querySelector('.screen').style.width = window.innerHeight * 0.5625 + 'px'
+    document.querySelector('.screen').style.height = mainContainerHeight + 'px'
+    document.querySelector('.screen').style.width = mainContainerWidth + 'px'
 
 // размеры сетки на экранах
     // сетка для #main-screen
-    document.querySelector('#main-screen').style.gridTemplateRows = mainContainerHeight*0.15 + 'px ' + mainContainerHeight*0.35 + 'px ' + mainContainerHeight*0.5 + 'px ';
+    document.querySelector('#main-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.40 + 'px ' + mainContainerHeight*0.5 + 'px ' + mainContainerHeight*1 + 'px ';
     
+
+// Изменение перменных в css
+      //ширина экрана 
+      document.documentElement.style.setProperty('--site-width-100', mainContainerWidth*1 + 'px');
+      document.documentElement.style.setProperty('--site-width-95', mainContainerWidth*0.95 + 'px');
+      document.documentElement.style.setProperty('--site-width-90', mainContainerWidth*0.9 + 'px');
+      document.documentElement.style.setProperty('--site-width-85', mainContainerWidth*0.85 + 'px');
+      document.documentElement.style.setProperty('--site-width-80', mainContainerWidth*0.8 + 'px');
+      document.documentElement.style.setProperty('--site-width-75', mainContainerWidth*0.75 + 'px');
+      document.documentElement.style.setProperty('--site-width-70', mainContainerWidth*0.7 + 'px');
+      document.documentElement.style.setProperty('--site-width-65', mainContainerWidth*0.65 + 'px');
+      document.documentElement.style.setProperty('--site-width-60', mainContainerWidth*0.6 + 'px');
+      document.documentElement.style.setProperty('--site-width-55', mainContainerWidth*0.55 + 'px');
+      document.documentElement.style.setProperty('--site-width-50', mainContainerWidth*0.5 + 'px');
+      document.documentElement.style.setProperty('--site-width-45', mainContainerWidth*0.45 + 'px');
+      document.documentElement.style.setProperty('--site-width-40', mainContainerWidth*0.4 + 'px');
+      document.documentElement.style.setProperty('--site-width-35', mainContainerWidth*0.35 + 'px');
+      document.documentElement.style.setProperty('--site-width-30', mainContainerWidth*0.3 + 'px');
+      document.documentElement.style.setProperty('--site-width-25', mainContainerWidth*0.25 + 'px');
+      document.documentElement.style.setProperty('--site-width-20', mainContainerWidth*0.2 + 'px');
+      document.documentElement.style.setProperty('--site-width-15', mainContainerWidth*0.15 + 'px');
+      document.documentElement.style.setProperty('--site-width-10', mainContainerWidth*0.1 + 'px');
+      document.documentElement.style.setProperty('--site-width-5', mainContainerWidth*0.05 + 'px');
+
+     // высота экрана
+      document.documentElement.style.setProperty('--site-height-100', mainContainerHeight*1 + 'px');
+      document.documentElement.style.setProperty('--site-height-85', mainContainerHeight*0.85 + 'px');
+      document.documentElement.style.setProperty('--site-height-80', mainContainerHeight*0.8 + 'px');
+      document.documentElement.style.setProperty('--site-height-90', mainContainerHeight*0.9 + 'px');
+      document.documentElement.style.setProperty('--site-height-95', mainContainerHeight*0.95 + 'px');
+      document.documentElement.style.setProperty('--site-height-75', mainContainerHeight*0.75 + 'px');
+      document.documentElement.style.setProperty('--site-height-70', mainContainerHeight*0.7 + 'px');
+      document.documentElement.style.setProperty('--site-height-65', mainContainerHeight*0.65 + 'px');
+      document.documentElement.style.setProperty('--site-height-60', mainContainerHeight*0.6 + 'px');
+      document.documentElement.style.setProperty('--site-height-55', mainContainerHeight*0.55 + 'px');
+      document.documentElement.style.setProperty('--site-height-50', mainContainerHeight*0.5 + 'px');
+      document.documentElement.style.setProperty('--site-height-45', mainContainerHeight*0.45 + 'px');
+      document.documentElement.style.setProperty('--site-height-40', mainContainerHeight*0.4 + 'px');
+      document.documentElement.style.setProperty('--site-height-35', mainContainerHeight*0.35 + 'px');
+      document.documentElement.style.setProperty('--site-height-30', mainContainerHeight*0.3 + 'px');
+      document.documentElement.style.setProperty('--site-height-25', mainContainerHeight*0.25 + 'px');
+      document.documentElement.style.setProperty('--site-height-225', mainContainerHeight*0.225 + 'px');
+      document.documentElement.style.setProperty('--site-height-20', mainContainerHeight*0.2 + 'px');
+      document.documentElement.style.setProperty('--site-height-15', mainContainerHeight*0.15 + 'px');
+      document.documentElement.style.setProperty('--site-height-10', mainContainerHeight*0.1 + 'px');
+      document.documentElement.style.setProperty('--site-height-5', mainContainerHeight*0.05 + 'px');
+
+      document.documentElement.style.setProperty('--header-font-size-008', mainContainerWidth*0.08 + 'px');
+      document.documentElement.style.setProperty('--header-font-size-010', mainContainerWidth*0.10 + 'px');
+
 }
 
 function containersResize() {
