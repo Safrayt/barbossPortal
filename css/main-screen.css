@@ -44,6 +44,7 @@
 .main-screen-buttons-button {
     width: var(--site-width-45);
     height: var(--site-height-225);
+    
     background: 
     
     linear-gradient(50deg, rgba(194, 230, 237, 0.9), 48%, rgba(0, 255, 0, 0) 20.0%),
@@ -63,5 +64,19 @@
     }
 }
 
+#main-screen-button-1 {
 
+}
+
+#main-screen-button-2 {
+    filter: blur(2px) grayscale(100%);
+}
+
+#main-screen-button-3 {
+    filter: blur(2px) grayscale(100%);
+}
+
+#main-screen-button-4 {
+    filter: blur(2px) grayscale(100%);
+}
 

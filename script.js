@@ -10,6 +10,8 @@
     let slaveContainerWidth
 // переменная позиции рабского контейнера.
     let mainContainerWidthPosition = 1
+// переменная сдвига позиции рабоского контейнера в пикселях
+    let slaveContainerWidthRight = 0
 
 
 function containersAndScreensSizes() {
@@ -39,15 +41,21 @@ function containersAndScreensSizes() {
     // размеры для стиля рабского контейнера
     document.querySelector('.slave-container').style.height = slaveContainerHeight + 'px'
     document.querySelector('.slave-container').style.width = slaveContainerWidth + 'px'
+    // изменение размеров отступа справа у рабского контейнера в зависимости от переменной переменная позиции рабского контейнера.
+    changeSection()
 
 // размеры всех экранов
-    document.querySelector('.screen').style.height = mainContainerHeight + 'px'
-    document.querySelector('.screen').style.width = mainContainerWidth + 'px'
+    document.querySelectorAll('.screen').forEach(screen => {
+        screen.style.height = mainContainerHeight + 'px';
+        screen.style.width = mainContainerWidth + 'px';
+        });
+
 
 // размеры сетки на экранах
     // сетка для #main-screen
     document.querySelector('#main-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.40 + 'px ' + mainContainerHeight*0.5 + 'px ' + mainContainerHeight*1 + 'px ';
-    
+    // сетка для #exercisesBase-screen
+    document.querySelector('#exercisesBase-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.40 + 'px ' + mainContainerHeight*0.5 + 'px ' + mainContainerHeight*1 + 'px ';
 
 // Изменение перменных в css
       //ширина экрана 
@@ -112,20 +120,44 @@ function containersResize() {
 
 
 
-
-
+// функция перелистывания экрана на следующую секцию
+function changeSection() {
+    if (mainContainerWidthPosition == 1) {
+        slaveContainerWidthRight = 0
+        document.querySelector('.slave-container').style.right = slaveContainerWidthRight + 'px'
+    }
+    if (mainContainerWidthPosition > 1) {
+        slaveContainerWidthRight = slaveContainerWidth - mainContainerWidth
+        document.querySelector('.slave-container').style.right = slaveContainerWidthRight + 'px'
+    }
+}
 
 // Кнопки
     // Кнопки навиганции
         // Кнопка перехода на следующий экран
         function navButtonForward() {
-            mainContainerWidthPosition = mainContainerWidthPosition + 1
-            containersAndScreensSizes()
+            const buttonText = event.target.innerText;
+            if (buttonText === "База упражнений") {
+                mainContainerWidthPosition = mainContainerWidthPosition + 1
+                containersAndScreensSizes()
+                changeSection()
+                document.getElementById("exercisesBase-screen").style.display = "grid";
+            }
+
+
         }
         // Кнопка перехода на предыдущий экран
         function navButtonBack() {
-            if (mainContainerWidthPosition > 1) {
-                mainContainerWidthPosition = mainContainerWidthPosition - 1
-                containersAndScreensSizes()
+            
+               const buttonText = event.target.innerText;
+                if (buttonText === "Назад") {
+                    mainContainerWidthPosition = mainContainerWidthPosition - 1
+                    containersAndScreensSizes()
+                    changeSection()
+                    document.getElementById("exercisesBase-screen").style.display = "none";
+                }
+
             }
-        }
+
+
+        

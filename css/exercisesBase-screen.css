@@ -1,0 +1,4 @@
+#exercisesBase-screen {
+    display: none;
+    /* grid-template-rows: (mainContainerHeight - mainContainerWidth)*0.15 + 'px ' + (mainContainerHeight - mainContainerWidth)*0.85 + 'px ' + mainContainerWidth/2 + 'px ' + mainContainerWidth/2 + 'px ';*/
+}
