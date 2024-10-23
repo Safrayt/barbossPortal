@@ -44,12 +44,30 @@
     --site-height-15: 0;
     --site-height-10: 0;
     --site-height-5: 0;
+    --site-height-025: 0;
 
 
+    /* переменные для заголовков секций */
     --header-font-size-008: 0;
     --header-font-size-010: 0;
+    --header-font-size-005: 0;
+    --header-font-size-0025: 0;
     --header-font-family: "Roboto", sans-serif;
-    --header-font-weight: 700;
+    --header-font-weight-700: 700;
+    --header-font-weight-500: 500;
+    --header-font-weight-300: 300;
     --header-font-style: normal;
+
+    /* переменные для кнопок */
+    --button-font-size-008: 0;
+    --button-font-size-010: 0;
+    --button-font-size-005: 0;
+    --button-font-size-0025: 0;
+    --button-font-family: "Roboto", sans-serif;
+    --button-font-weight-700: 700;
+    --button-font-weight-500: 500;
+    --button-font-weight-300: 300;
+    --button-font-style: normal;
+
   }
 

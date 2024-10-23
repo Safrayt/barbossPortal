@@ -1,0 +1,9 @@
+.muscle-group {
+    transition: fill 0.3s ease, stroke 0.3s ease;
+  }
+  
+  .muscle-group:hover {
+    fill: red; /* Изменение цвета при наведении */
+    stroke: black; /* Добавление обводки */
+    stroke-width: 2;
+  }

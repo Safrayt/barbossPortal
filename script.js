@@ -55,7 +55,9 @@ function containersAndScreensSizes() {
     // сетка для #main-screen
     document.querySelector('#main-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.40 + 'px ' + mainContainerHeight*0.5 + 'px ' + mainContainerHeight*1 + 'px ';
     // сетка для #exercisesBase-screen
-    document.querySelector('#exercisesBase-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.40 + 'px ' + mainContainerHeight*0.5 + 'px ' + mainContainerHeight*1 + 'px ';
+    document.querySelector('#exercisesBase-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.05 + 'px '+ mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.05 + 'px ' + mainContainerHeight*0.70 + 'px ';
+
+
 
 // Изменение перменных в css
       //ширина экрана 
@@ -102,10 +104,16 @@ function containersAndScreensSizes() {
       document.documentElement.style.setProperty('--site-height-15', mainContainerHeight*0.15 + 'px');
       document.documentElement.style.setProperty('--site-height-10', mainContainerHeight*0.1 + 'px');
       document.documentElement.style.setProperty('--site-height-5', mainContainerHeight*0.05 + 'px');
+      document.documentElement.style.setProperty('--site-height-025', mainContainerHeight*0.025 + 'px');
 
+    // Размеры шрифта заголовков секций
+      document.documentElement.style.setProperty('--header-font-size-0025', mainContainerWidth*0.025 + 'px');
+      document.documentElement.style.setProperty('--header-font-size-005', mainContainerWidth*0.05 + 'px');
       document.documentElement.style.setProperty('--header-font-size-008', mainContainerWidth*0.08 + 'px');
       document.documentElement.style.setProperty('--header-font-size-010', mainContainerWidth*0.10 + 'px');
-
+      
+    // Размеры шрифта для кнопок
+    document.documentElement.style.setProperty('--button-font-size-1', mainContainerWidth*0.04 + 'px');
 }
 
 function containersResize() {
@@ -133,31 +141,57 @@ function changeSection() {
 }
 
 // Кнопки
+// Функция отключения всех кнопок на 1 секунду
+function disableButtons() {
+        // Находим все кнопки на странице
+        const buttons = document.querySelectorAll('button');
+        // Отключаем каждую кнопку
+        buttons.forEach(button => {
+            button.disabled = true;
+        });
+        // Через 1 секунду включаем кнопки обратно
+        setTimeout(() => {
+            buttons.forEach(button => {
+                button.disabled = false;
+            });
+        }, 1000); // 1000 миллисекунд = 1 секунда
+    }
+
+
+
     // Кнопки навиганции
         // Кнопка перехода на следующий экран
         function navButtonForward() {
             const buttonText = event.target.innerText;
             if (buttonText === "База упражнений") {
                 mainContainerWidthPosition = mainContainerWidthPosition + 1
+                document.querySelector('.slave-container').style.transition = "right 1s ease-in-out";
                 containersAndScreensSizes()
                 changeSection()
                 document.getElementById("exercisesBase-screen").style.display = "grid";
+                // Фунция отключения всех кнопок на 1 секунда для исключения повторного нажатия
+                disableButtons();
+                setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
             }
 
 
         }
         // Кнопка перехода на предыдущий экран
         function navButtonBack() {
-            
                const buttonText = event.target.innerText;
                 if (buttonText === "Назад") {
                     mainContainerWidthPosition = mainContainerWidthPosition - 1
-                    containersAndScreensSizes()
+                    document.querySelector('.slave-container').style.transition = "right 1s ease-in-out";
+                    setTimeout(() => containersAndScreensSizes(), 1000);
                     changeSection()
-                    document.getElementById("exercisesBase-screen").style.display = "none";
+                    setTimeout(() => document.getElementById("exercisesBase-screen").style.display = "none", 1000);
+                    // Фунция отключения всех кнопок на 1 секунда для исключения повторного нажатия
+                    disableButtons();
+                    setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
                 }
 
             }
+            
 
 
         
