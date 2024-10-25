@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/main-screen.css">
+    <link rel="stylesheet" href="css/slave-screen.css">
     <link rel="stylesheet" href="css/style-roots.css">
     <link rel="stylesheet" href="css/style-tests.css">
 
@@ -20,7 +21,9 @@
         <div class="slave-container">
             <section id="main-screen" class="screen">
                 <div id="main-screen-header" class="screen-header">
-                    <h1 id="main-screen-header-title" class="screen-header-title">BarBoss DataBase</h1>
+                    <div class="main-screen-header-title-box">
+                        <h1 id="main-screen-header-title" class="screen-header-title">BarBoss DataBase</h1>
+                    </div>
                 </div>
                 <div id="main-screen-logo"></div>
                 <div id="main-screen-buttons">
@@ -34,8 +37,17 @@
             <section id="workoutComplex-screen" class="screen slave-screen"></section>
             <section id="exercisesBase-screen" class="screen slave-screen">
                 <div class="screen-header-reverse">
-                    <button class="slave-screen-header-backButton slave-screen-buttons-button-font" onclick="navButtonBack()">Назад</button>
-                    <h1 class="slave-screen-header-title">База Упражнений</h1>
+                    
+                        <button class="slave-screen-header-backButton" onclick="navButtonBack()">Назад</button>
+                
+                    <div class="slave-screen-header-title-box">
+                        <h1 class="slave-screen-header-title">База<br> Упражнений</h1>
+                    </div>
+                </div>
+                <div id="exercisesBase-screen-difficultSortButtons">
+                    <button class="exercisesBase-screen-difficultSortButtons slave-screen-sortButtons-font" id="exercisesBase-screen-difficultSortButtons-1">Облегченные</button>
+                    <button class="exercisesBase-screen-difficultSortButtons slave-screen-sortButtons-font" id="exercisesBase-screen-difficultSortButtons-2">Базовые</button>
+                    <button class="exercisesBase-screen-difficultSortButtons slave-screen-sortButtons-font" id="exercisesBase-screen-difficultSortButtons-3">Продвинутые</button>
                 </div>
                 <div id="exercisesBase-screen-searchForm">
                     <input type="text" id="exercisesBase-screen-searchForm-input" placeholder="Поиск по названию или мышечной группе">
@@ -46,12 +58,6 @@
                     <button class="exercisesBase-screen-typeSortButtons" id="exercisesBase-screen-typeSortButtons-flyExrcises">Разводки</button>
                     <button class="exercisesBase-screen-typeSortButtons" id="exercisesBase-screen-typeSortButtons-curlExrcises">Скручивания</button>
                     <button class="exercisesBase-screen-typeSortButtons" id="exercisesBase-screen-typeSortButtons-legsExrcises">Ноги</button>
-                </div>
-
-                <div id="exercisesBase-screen-difficultSortButtons">
-                    <button class="exercisesBase-screen-difficultSortButtons" id="lowBtn">Облегченная</button>
-                    <button class="exercisesBase-screen-difficultSortButtons" id="middleBtn">Умеренная</button>
-                    <button class="exercisesBase-screen-difficultSortButtons" id="highBtn">Максимальная</button>
                 </div>
                 
             </section>

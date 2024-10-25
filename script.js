@@ -55,7 +55,7 @@ function containersAndScreensSizes() {
     // сетка для #main-screen
     document.querySelector('#main-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.40 + 'px ' + mainContainerHeight*0.5 + 'px ' + mainContainerHeight*1 + 'px ';
     // сетка для #exercisesBase-screen
-    document.querySelector('#exercisesBase-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.05 + 'px '+ mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.05 + 'px ' + mainContainerHeight*0.70 + 'px ';
+    document.querySelector('#exercisesBase-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.06 + 'px '+ mainContainerHeight*0.08 + 'px ' + mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.70 + 'px ';
 
 
 
@@ -109,11 +109,22 @@ function containersAndScreensSizes() {
     // Размеры шрифта заголовков секций
       document.documentElement.style.setProperty('--header-font-size-0025', mainContainerWidth*0.025 + 'px');
       document.documentElement.style.setProperty('--header-font-size-005', mainContainerWidth*0.05 + 'px');
+      document.documentElement.style.setProperty('--header-font-size-006', mainContainerWidth*0.06 + 'px');
+      document.documentElement.style.setProperty('--header-font-size-007', mainContainerWidth*0.07 + 'px');
       document.documentElement.style.setProperty('--header-font-size-008', mainContainerWidth*0.08 + 'px');
+      document.documentElement.style.setProperty('--header-font-size-009', mainContainerWidth*0.09 + 'px');
       document.documentElement.style.setProperty('--header-font-size-010', mainContainerWidth*0.10 + 'px');
       
     // Размеры шрифта для кнопок
-    document.documentElement.style.setProperty('--button-font-size-1', mainContainerWidth*0.04 + 'px');
+    document.documentElement.style.setProperty('--button-font-size-001', mainContainerWidth*0.01 + 'px');
+    document.documentElement.style.setProperty('--button-font-size-0025', mainContainerWidth*0.025 + 'px');
+    document.documentElement.style.setProperty('--button-font-size-003', mainContainerWidth*0.03 + 'px');
+    document.documentElement.style.setProperty('--button-font-size-004', mainContainerWidth*0.04 + 'px');
+    document.documentElement.style.setProperty('--button-font-size-005', mainContainerWidth*0.05 + 'px');
+    document.documentElement.style.setProperty('--button-font-size-006', mainContainerWidth*0.06 + 'px');
+    document.documentElement.style.setProperty('--button-font-size-007', mainContainerWidth*0.07 + 'px');
+    document.documentElement.style.setProperty('--button-font-size-008', mainContainerWidth*0.08 + 'px');
+    document.documentElement.style.setProperty('--button-font-size-010', mainContainerWidth*0.1 + 'px');
 }
 
 function containersResize() {

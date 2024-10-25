@@ -7,13 +7,30 @@
 }
 #main-screen-header {
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.main-screen-header-title-box {
+    width: fit-content;
+    height: fit-content;
+    padding: 5px 20px;
+    border-radius: 5px;
+    background-color:  hsla(201, 80%, 29%, 0.477);
+    border: 2px solid white;
+}
+
+
 
     #main-screen-header-title {
         height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
+
+        color: white;
+        -webkit-text-stroke: 1px rgb(7, 7, 7); /* Толщина и цвет обводки */
     }
 
 #main-screen-logo {
@@ -74,7 +91,6 @@
         font-size: 2em;
     }
 }
-
 
 
 

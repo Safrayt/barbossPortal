@@ -7,107 +7,62 @@
     background-position: center;
 }
 
-.screen-header-reverse {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    grid-row-start: 1;
-    grid-column-start: 1;
-    grid-row-end: 2;
-    grid-column-end: 2;
-}
-
-.slave-screen-header-backButton {
-    border: none;
-    padding-left: 10px;
-    background-color: transparent;
-    width: 25%;
-    height: 100%;
-    text-align: left;
-}
-
-.slave-screen-buttons-button-font {
-    font-size: var(--header-font-size-005);
-    font-family: var(--header-font-family);
-    font-weight: var(--header-font-weight-300);
-    font-style: var(--header-font-style);
-}
-
-.slave-screen-header-title {
-    padding-right: 10px;
-    font-size: var(--header-font-size-005);
-    font-family: var(--header-font-family);
-    font-weight: var(--header-font-weight-700);
-    font-style: var(--header-font-style);
-}
 
 #exercisesBase-screen-searchForm {
+    margin: 0 5px 0px;
+    background-color: var(--color-box);
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+
     display: flex;
     justify-content: center;
     align-items: center;
     
-    grid-row-start: 2;
-    grid-column-start: 1;
-    grid-row-end: 3;
-    grid-column-end: 2;
-}
-
-#exercisesBase-screen-searchForm-input {
-        text-align: center;
-        width: var(--site-width-90);
-        height: 30px;
-        font-size: 1em;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        transition: border-color 0.2s;
-}
-
-#exercisesBase-screen-typeSortButtons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     
-    flex-wrap: wrap;
-    column-gap: var(--site-height-025);
-
     grid-row-start: 3;
     grid-column-start: 1;
     grid-row-end: 4;
     grid-column-end: 2;
 }
 
-.exercisesBase-screen-typeSortButtons {
-    height: 40%;
-    width: auto;
-    padding: 0 5%;
-    font-size: var(--button-font-size-1);
-    font-family: var(--header-font-family);
-    font-weight: var(--header-font-weight-500);
-    font-style: var(--header-font-style);
-
-    border: none;
-    border-radius: 5px;
-    background-color: #000000;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.2s, color 0.2s;
-}
-.exercisesBase-screen-typeSortButtons:hover {
-    background-color: #576066;
-    font-weight: var(--header-font-weight-700);
+#exercisesBase-screen-searchForm-input {
+        text-align: center;
+        width: var(--site-width-90);
+        height: var(--site-height-5);
+        font-size: 1em;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: border-color 0.2s;
+        
+        border: 2px solid hsla(0, 0%, 100%, 0.5);
+        border-radius: 5px;
+        background-color: rgba(73, 255, 234, 0.273);
 }
 
-.exercisesBase-screen-typeSortButtons.active {
-    background-color: #292727; /* Active state color */
-    color: #fff;
+#exercisesBase-screen-searchForm-input::placeholder {
+    
+    color: white;
+    outline: none;
+    text-shadow: 2px 1px 1px rgb(0, 0, 0);
 }
 
+#exercisesBase-screen-searchForm-input:focus {
+    background-color: var(--color-box);
+    border-color: white;
+    color: white;
+    outline: none;
+    text-shadow: 2px 1px 1px rgb(0, 0, 0);
+}
 
-
-
-
-#exercisesBase-screen-difficultSortButtons {
+#exercisesBase-screen-typeSortButtons {
+    margin: 0 5px 0px;
+    background-color: var(--color-box);
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+    border-radius: 0 0 5px 5px;
+    border-bottom: 2px solid white;
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -121,28 +76,75 @@
     grid-column-end: 2;
 }
 
-.exercisesBase-screen-difficultSortButtons {
-    height: 100%;
+.exercisesBase-screen-typeSortButtons {
+    height: 40%;
     width: auto;
-    padding: 0 1%;
+    padding: 0 5%;
     font-size: var(--button-font-size-1);
     font-family: var(--header-font-family);
     font-weight: var(--header-font-weight-500);
     font-style: var(--header-font-style);
 
     border: none;
-    border-radius: 5px;
-    background-color: #000000;
+    background-color: var(--color-box);
     color: #fff;
     cursor: pointer;
     transition: background-color 0.2s, color 0.2s;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+.exercisesBase-screen-typeSortButtons:hover {
+    background-color: rgba(73, 255, 234, 0.273);
+    border: 2px solid rgba(255, 255, 255, 0.934);
+    border-radius: 5px;
+}
+
+.exercisesBase-screen-typeSortButtons.active {
+    background-color:rgba(73, 255, 234, 0.273); /* Active state color */
+    color: #fff;
+}
+
+
+
+
+
+#exercisesBase-screen-difficultSortButtons {
+    margin: 5px 5px 0px;
+    background-color: var(--color-box);
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+    border-radius: 5px 5px 0 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    column-gap: var(--site-height-025);
+
+    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-row-end: 3;
+    grid-column-end: 2;
+}
+
+.exercisesBase-screen-difficultSortButtons {
+    border: none;
+    padding: 1% 2%;
+    background-color: transparent;
+
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+
+
 }
 .exercisesBase-screen-difficultSortButtons:hover {
-    background-color: #576066;
+    background-color: rgba(73, 255, 234, 0.273);
 }
 
 .exercisesBase-screen-difficultSortButtons.active {
-    background-color: #292727; /* Active state color */
-    color: #fff;
+    background-color: rgba(73, 255, 234, 0.273); /* Active state color */   
 }
+
+
 

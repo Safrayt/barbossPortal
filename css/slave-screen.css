@@ -1,0 +1,74 @@
+
+.screen-header-reverse {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 2;
+    grid-column-end: 2;
+}
+
+.slave-screen-header-title-box {
+    width: 50%;
+    height: 80%;
+    margin-right: 10px;
+    border-radius: 5px;
+    background-color: hsla(201, 80%, 29%, 0.477);
+    border: 2px solid white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+.slave-screen-header-backButton {
+    font-size: var(--header-font-size-007);
+    font-family: var(--header-font-family);
+    font-weight: var(--header-font-weight-700);
+    font-style: var(--header-font-style);
+
+
+    padding: 0 10px;
+    border: none;
+    background-color: transparent;
+    height: 100%;
+    text-align: center;
+
+    color: white;
+        -webkit-text-stroke: 0.8px rgb(7, 7, 7); /* Толщина и цвет обводки */
+}
+
+.slave-screen-header-backButton:hover {
+    color: white;
+        -webkit-text-stroke: 1px rgb(172, 172, 172); /* Толщина и цвет обводки */
+}
+
+.slave-screen-header-backButton:active {
+    color: white;
+        -webkit-text-stroke: 1px rgb(172, 172, 172); /* Толщина и цвет обводки */
+}
+
+
+.slave-screen-header-title {
+    color: #ffffff;
+    -webkit-text-stroke: 1px rgb(7, 7, 7); /* Толщина и цвет обводки */
+    margin-right: 10px;
+    text-align: right;
+    font-size: var(--header-font-size-006);
+    font-family: var(--header-font-family);
+    font-weight: var(--header-font-weight-700);
+    font-style: var(--header-font-style);
+    line-height: 90%
+}
+
+
+.slave-screen-sortButtons-font {
+    font-size: var(--button-font-size-004);
+    font-family: var(--header-font-family);
+    font-weight: var(--button-font-weight-700);
+    font-style: var(--button-font-style);
+
+    color: white;
+    text-shadow: 2px 1px 1px rgb(0, 0, 0);
+}
