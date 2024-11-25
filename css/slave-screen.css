@@ -1,74 +1,101 @@
+.slave-screen {
 
-.screen-header-reverse {
+}
+
+
+.slave-screen-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    grid-row-start: 1;
-    grid-column-start: 1;
-    grid-row-end: 2;
-    grid-column-end: 2;
+    padding: 1% 2%;
 }
 
 .slave-screen-header-title-box {
-    width: 50%;
-    height: 80%;
-    margin-right: 10px;
-    border-radius: 5px;
-    background-color: hsla(201, 80%, 29%, 0.477);
-    border: 2px solid white;
+    width: 65%;
+    height: 100%;
+    background-color: var(--color-box);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.68);
+    border-radius: 0;
+    border: 1px solid #363636;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    border-left: 10px solid #363636;
+    border-right: 10px solid #363636;
+}
+
+.slave-screen-header-title-main {
+    font-size: 25px;
+    color: var(--color-title-main);
+    text-align: right;
+    padding-right: 10px;
+
+    font-size: var(--header-font-size-006);
+    font-family: var(--header-font-family);
+    font-weight: var(--header-font-weight-500);
+    font-style: var(--header-font-style);
+}
+
+.slave-screen-header-title-line {
+    width: 90%;
+    background-color: var(--color-title-slave);
+    height: 2px;
+    align-self: center;
+}
+
+.slave-screen-header-title-slave {
+    width: 90%;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 15px;
+    color: var(--color-title-slave);
+
+    font-size: var(--header-font-size-003);
+    font-family: var(--header-font-family);
+    font-weight: var(--header-font-weight-500);
+    font-style: var(--header-font-style);
 }
 
 
 .slave-screen-header-backButton {
+    width: 30%;
+    height: 90%;
+    border-radius: 10px;
+
+    background-color: var(--color-box);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.68);
+    border: none;
+    border-left: 13px solid #363636;
+
+    color: var(--color-title-main);
     font-size: var(--header-font-size-007);
     font-family: var(--header-font-family);
-    font-weight: var(--header-font-weight-700);
+    font-weight: var(--header-font-weight-500);
     font-style: var(--header-font-style);
+    text-align:left;
+    padding-left: 5px;
 
-
-    padding: 0 10px;
-    border: none;
-    background-color: transparent;
-    height: 100%;
-    text-align: center;
-
-    color: white;
-        -webkit-text-stroke: 0.8px rgb(7, 7, 7); /* Толщина и цвет обводки */
 }
 
 .slave-screen-header-backButton:hover {
-    color: white;
-        -webkit-text-stroke: 1px rgb(172, 172, 172); /* Толщина и цвет обводки */
+    border-left: 13px solid #ffbd16;
 }
 
 .slave-screen-header-backButton:active {
-    color: white;
-        -webkit-text-stroke: 1px rgb(172, 172, 172); /* Толщина и цвет обводки */
+    border-left: 13px solid var(--color-box);
+    transform: scale(95%);
 }
 
 
 .slave-screen-header-title {
-    color: #ffffff;
-    -webkit-text-stroke: 1px rgb(7, 7, 7); /* Толщина и цвет обводки */
-    margin-right: 10px;
+    font-size: 25px;
+    color: var(--color-title-main);
+    padding-right: 10px;
     text-align: right;
-    font-size: var(--header-font-size-006);
     font-family: var(--header-font-family);
-    font-weight: var(--header-font-weight-700);
+    font-weight: var(--header-font-weight-500);
     font-style: var(--header-font-style);
-    line-height: 90%
+    line-height: 90%;
 }
 
-
-.slave-screen-sortButtons-font {
-    font-size: var(--button-font-size-004);
-    font-family: var(--header-font-family);
-    font-weight: var(--button-font-weight-700);
-    font-style: var(--button-font-style);
-
-    color: white;
-    text-shadow: 2px 1px 1px rgb(0, 0, 0);
-}

@@ -1,208 +1,562 @@
 
-// Переменные для стилей
-
-// переменные размеров контейнеров
-    // переменные размеров главного контейнера.
-    let mainContainerHeight
-    let mainContainerWidth
-    // переменные размеров рабского контейнера.
-    let slaveContainerHeight
-    let slaveContainerWidth
-// переменная позиции рабского контейнера.
-    let mainContainerWidthPosition = 1
-// переменная сдвига позиции рабоского контейнера в пикселях
-    let slaveContainerWidthRight = 0
-
-
-function containersAndScreensSizes() {
-// размеры главного контейнера 
-    // высота
-        mainContainerHeight = window.innerHeight;
-    // ширина
-    if (window.innerWidth/window.innerHeight < 0.5625) {
-        mainContainerWidth = window.innerWidth;
-    } else {
-        mainContainerWidth = window.innerHeight * 0.5625;
-        }
-    // размеры для стиля главного контейнера
-    document.querySelector('.main-container').style.height = mainContainerHeight + 'px'
-    document.querySelector('.main-container').style.width = mainContainerWidth + 'px'
-
-// размеры рабского контейнера
-    // высота
-        slaveContainerHeight = window.innerHeight;
-    // ширина
-        // ширина рабского контейрена зависит от переменной позиции рабского контейнера
-        if (window.innerWidth/window.innerHeight < 0.5625) {
-            slaveContainerWidth = window.innerWidth * mainContainerWidthPosition;
-        } else {
-            slaveContainerWidth = window.innerHeight * 0.5625 * mainContainerWidthPosition;
-            }
-    // размеры для стиля рабского контейнера
-    document.querySelector('.slave-container').style.height = slaveContainerHeight + 'px'
-    document.querySelector('.slave-container').style.width = slaveContainerWidth + 'px'
-    // изменение размеров отступа справа у рабского контейнера в зависимости от переменной переменная позиции рабского контейнера.
-    changeSection()
-
-// размеры всех экранов
-    document.querySelectorAll('.screen').forEach(screen => {
-        screen.style.height = mainContainerHeight + 'px';
-        screen.style.width = mainContainerWidth + 'px';
-        });
-
-
-// размеры сетки на экранах
-    // сетка для #main-screen
-    document.querySelector('#main-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.40 + 'px ' + mainContainerHeight*0.5 + 'px ' + mainContainerHeight*1 + 'px ';
-    // сетка для #exercisesBase-screen
-    document.querySelector('#exercisesBase-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.06 + 'px '+ mainContainerHeight*0.08 + 'px ' + mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.70 + 'px ';
-
-
-
-// Изменение перменных в css
-      //ширина экрана 
-      document.documentElement.style.setProperty('--site-width-100', mainContainerWidth*1 + 'px');
-      document.documentElement.style.setProperty('--site-width-95', mainContainerWidth*0.95 + 'px');
-      document.documentElement.style.setProperty('--site-width-90', mainContainerWidth*0.9 + 'px');
-      document.documentElement.style.setProperty('--site-width-85', mainContainerWidth*0.85 + 'px');
-      document.documentElement.style.setProperty('--site-width-80', mainContainerWidth*0.8 + 'px');
-      document.documentElement.style.setProperty('--site-width-75', mainContainerWidth*0.75 + 'px');
-      document.documentElement.style.setProperty('--site-width-70', mainContainerWidth*0.7 + 'px');
-      document.documentElement.style.setProperty('--site-width-65', mainContainerWidth*0.65 + 'px');
-      document.documentElement.style.setProperty('--site-width-60', mainContainerWidth*0.6 + 'px');
-      document.documentElement.style.setProperty('--site-width-55', mainContainerWidth*0.55 + 'px');
-      document.documentElement.style.setProperty('--site-width-50', mainContainerWidth*0.5 + 'px');
-      document.documentElement.style.setProperty('--site-width-45', mainContainerWidth*0.45 + 'px');
-      document.documentElement.style.setProperty('--site-width-40', mainContainerWidth*0.4 + 'px');
-      document.documentElement.style.setProperty('--site-width-35', mainContainerWidth*0.35 + 'px');
-      document.documentElement.style.setProperty('--site-width-30', mainContainerWidth*0.3 + 'px');
-      document.documentElement.style.setProperty('--site-width-25', mainContainerWidth*0.25 + 'px');
-      document.documentElement.style.setProperty('--site-width-20', mainContainerWidth*0.2 + 'px');
-      document.documentElement.style.setProperty('--site-width-15', mainContainerWidth*0.15 + 'px');
-      document.documentElement.style.setProperty('--site-width-10', mainContainerWidth*0.1 + 'px');
-      document.documentElement.style.setProperty('--site-width-5', mainContainerWidth*0.05 + 'px');
-
-     // высота экрана
-      document.documentElement.style.setProperty('--site-height-100', mainContainerHeight*1 + 'px');
-      document.documentElement.style.setProperty('--site-height-85', mainContainerHeight*0.85 + 'px');
-      document.documentElement.style.setProperty('--site-height-80', mainContainerHeight*0.8 + 'px');
-      document.documentElement.style.setProperty('--site-height-90', mainContainerHeight*0.9 + 'px');
-      document.documentElement.style.setProperty('--site-height-95', mainContainerHeight*0.95 + 'px');
-      document.documentElement.style.setProperty('--site-height-75', mainContainerHeight*0.75 + 'px');
-      document.documentElement.style.setProperty('--site-height-70', mainContainerHeight*0.7 + 'px');
-      document.documentElement.style.setProperty('--site-height-65', mainContainerHeight*0.65 + 'px');
-      document.documentElement.style.setProperty('--site-height-60', mainContainerHeight*0.6 + 'px');
-      document.documentElement.style.setProperty('--site-height-55', mainContainerHeight*0.55 + 'px');
-      document.documentElement.style.setProperty('--site-height-50', mainContainerHeight*0.5 + 'px');
-      document.documentElement.style.setProperty('--site-height-45', mainContainerHeight*0.45 + 'px');
-      document.documentElement.style.setProperty('--site-height-40', mainContainerHeight*0.4 + 'px');
-      document.documentElement.style.setProperty('--site-height-35', mainContainerHeight*0.35 + 'px');
-      document.documentElement.style.setProperty('--site-height-30', mainContainerHeight*0.3 + 'px');
-      document.documentElement.style.setProperty('--site-height-25', mainContainerHeight*0.25 + 'px');
-      document.documentElement.style.setProperty('--site-height-225', mainContainerHeight*0.225 + 'px');
-      document.documentElement.style.setProperty('--site-height-20', mainContainerHeight*0.2 + 'px');
-      document.documentElement.style.setProperty('--site-height-15', mainContainerHeight*0.15 + 'px');
-      document.documentElement.style.setProperty('--site-height-10', mainContainerHeight*0.1 + 'px');
-      document.documentElement.style.setProperty('--site-height-5', mainContainerHeight*0.05 + 'px');
-      document.documentElement.style.setProperty('--site-height-025', mainContainerHeight*0.025 + 'px');
-
-    // Размеры шрифта заголовков секций
-      document.documentElement.style.setProperty('--header-font-size-0025', mainContainerWidth*0.025 + 'px');
-      document.documentElement.style.setProperty('--header-font-size-005', mainContainerWidth*0.05 + 'px');
-      document.documentElement.style.setProperty('--header-font-size-006', mainContainerWidth*0.06 + 'px');
-      document.documentElement.style.setProperty('--header-font-size-007', mainContainerWidth*0.07 + 'px');
-      document.documentElement.style.setProperty('--header-font-size-008', mainContainerWidth*0.08 + 'px');
-      document.documentElement.style.setProperty('--header-font-size-009', mainContainerWidth*0.09 + 'px');
-      document.documentElement.style.setProperty('--header-font-size-010', mainContainerWidth*0.10 + 'px');
-      
-    // Размеры шрифта для кнопок
-    document.documentElement.style.setProperty('--button-font-size-001', mainContainerWidth*0.01 + 'px');
-    document.documentElement.style.setProperty('--button-font-size-0025', mainContainerWidth*0.025 + 'px');
-    document.documentElement.style.setProperty('--button-font-size-003', mainContainerWidth*0.03 + 'px');
-    document.documentElement.style.setProperty('--button-font-size-004', mainContainerWidth*0.04 + 'px');
-    document.documentElement.style.setProperty('--button-font-size-005', mainContainerWidth*0.05 + 'px');
-    document.documentElement.style.setProperty('--button-font-size-006', mainContainerWidth*0.06 + 'px');
-    document.documentElement.style.setProperty('--button-font-size-007', mainContainerWidth*0.07 + 'px');
-    document.documentElement.style.setProperty('--button-font-size-008', mainContainerWidth*0.08 + 'px');
-    document.documentElement.style.setProperty('--button-font-size-010', mainContainerWidth*0.1 + 'px');
-}
-
-function containersResize() {
-    window.addEventListener('resize', function() {
-    console.log("Размер окна изменен");
-    containersAndScreensSizes()
-  });
+// Облегченные упражнения
+let exercise_1 = {
+    name : "Подтягивания к столбу",
+    type : "Подтягивания",
+    img : "img/exercises/exercise_1.png",
+    difficult : 'Облегченное упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+  
+  let exercise_2 = {
+    name : "Отжимания от столба",
+    type : "Отжимания",
+    img : "img/exercises/exercise_2.png",
+    difficult : 'Облегченное упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
   }
 
-  containersAndScreensSizes()
-  containersResize()
+  let exercise_3 = {
+    name : "Приседания с упором икрами",
+    type : "Ноги",
+    img : "img/exercises/exercise_3.png",
+    difficult : 'Облегченное упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_4 = {
+    name : "Додо от столба/стены",
+    type : "Разводки",
+    img : "img/exercises/exercise_4.png",
+    difficult : 'Облегченное упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_5 = {
+    name : "Бег в упоре",
+    type : "Скручивания",
+    img : "img/exercises/exercise_5.png",
+    difficult : 'Облегченное упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+// Базовые упражнения
+
+  let exercise_6 = {
+    name : "Австралийские подтягивания",
+    type : "Подтягивания",
+    img : "img/exercises/exercise_6.png",
+    difficult : 'Базовое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_7 = {
+    name : 'Отжимания "Руки выше ног"',
+    type : "Отжимания",
+    img : "img/exercises/exercise_7.png",
+    difficult : 'Базовое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_8 = {
+    name : 'Зашагивания',
+    type : "Ноги",
+    img : "img/exercises/exercise_21.png",
+    difficult : 'Базовое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_9 = {
+    name : 'Додо от наклонной поверхности',
+    type : "Разводки",
+    img : "img/exercises/exercise_9.png",
+    difficult : 'Базовое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_10 = {
+    name : 'Скручивания',
+    type : "Скручивания",
+    img : "img/exercises/exercise_10.png",
+    difficult : 'Базовое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_11 = {
+    name : 'Подтягивания "Австралийский тюлень"',
+    type : "Подтягивания",
+    img : "img/exercises/exercise_11.png",
+    difficult : 'Базовое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_12 = {
+    name : 'Отжимания от пола',
+    type : "Отжимания",
+    img : "img/exercises/exercise_12.png",
+    difficult : 'Базовое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_13 = {
+    name : 'Приседания',
+    type : "Ноги",
+    img : "img/exercises/exercise_8.png",
+    difficult : 'Базовое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_14 = {
+    name : 'Подъёмы коленей до груди в висе/упоре на брусьях',
+    type : "Скручивания",
+    img : "img/exercises/exercise_14.png",
+    difficult : 'Базовое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_15 = {
+    name : 'Подтягивания',
+    type : "Подтягивания",
+    img : "img/exercises/exercise_15.png",
+    difficult : 'Базовое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_16 = {
+    name : 'Отжимания "Руки выше ног"',
+    type : "Отжимания",
+    img : "img/exercises/exercise_16.png",
+    difficult : 'Базовое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_17 = {
+    name : 'Выпады',
+    type : "Ноги",
+    img : "img/exercises/exercise_13.png",
+    difficult : 'Базовое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_18 = {
+    name : 'Подъёмы ног выше уголка в висе/упоре на брусьях',
+    type : "Скручивания",
+    img : "img/exercises/exercise_18.png",
+    difficult : 'Базовое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_19 = {
+    name : "Австралийские подтягивания на бицепс ложным нижним хватом",
+    type : "Подтягивания",
+    img : "img/exercises/exercise_19.png",
+    difficult : 'Продвинутое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_20 = {
+    name : "Отжимания на брусьях",
+    type : "Отжимания",
+    img : "img/exercises/exercise_20.png",
+    difficult : 'Базовое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_21 = {
+    name : 'Подъёмы на носки двумя ногами',
+    type : "Ноги",
+    img : "img/exercises/exercise_17.png",
+    difficult : 'Базовое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_22 = {
+    name : 'Боковые скручивания с согнутыми ногами в висе/упоре на брусьях',
+    type : "Скручивания",
+    img : "img/exercises/exercise_22.png",
+    difficult : 'Продвинутое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_23 = {
+    name : 'Высокие подтягивания',
+    type : "Подтягивания",
+    img : "img/exercises/exercise_23.png",
+    difficult : 'Продвинутое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_24 = {
+    name : 'Отжимания "Нырок щуки"',
+    type : "Отжимания",
+    img : "img/exercises/exercise_24.png",
+    difficult : 'Продвинутое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_25 = {
+    name : 'Подъёмы на носки одной ногой',
+    type : "Ноги",
+    img : "img/exercises/exercise_25.png",
+    difficult : 'Базовое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_26 = {
+    name : 'Подъёмы ног как можно выше в висе/упоре на брусьях',
+    type : "Скручивания",
+    img : "img/exercises/exercise_26.png",
+    difficult : 'Продвинутое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_27 = {
+    name : 'Подтягивания со сведением лопаток',
+    type : "Подтягивания",
+    img : "img/exercises/exercise_27.png",
+    difficult : 'Продвинутое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_28 = {
+    name : 'Французские отжимания',
+    type : "Отжимания",
+    img : "img/exercises/exercise_28.png",
+    difficult : 'Продвинутое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_29 = {
+    name : 'Сгибания на заднюю поверхность бедра с помощью рук',
+    type : "Ноги",
+    img : "img/exercises/exercise_29.png",
+    difficult : 'Базовое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_30 = {
+    name : 'Боковые подъёмы ног как можно выше в висе/в упоре на брусьях',
+    type : "Скручивания",
+    img : "img/exercises/exercise_30.png",
+    difficult : 'Продвинутое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_31 = {
+    name : 'Подтягивания "Австралийский тюлень" на заднюю дельту',
+    type : "Подтягивания",
+    img : "img/exercises/exercise_31.png",
+    difficult : 'Продвинутое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_32 = {
+    name : 'Отжимания на брусьях в группировке',
+    type : "Отжимания",
+    img : "img/exercises/exercise_32.png",
+    difficult : 'Продвинутое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
+
+  let exercise_33 = {
+    name : 'Болгарские приседания',
+    type : "Ноги",
+    img : "img/exercises/exercise_33.png",
+    difficult : 'Продвинутое упражнение',
+    url : 'https://t.me/swtBarBosS/2937'
+  }
 
 
 
-// функция перелистывания экрана на следующую секцию
-function changeSection() {
-    if (mainContainerWidthPosition == 1) {
-        slaveContainerWidthRight = 0
-        document.querySelector('.slave-container').style.right = slaveContainerWidthRight + 'px'
+
+
+  let allExerciseBase = [exercise_1, exercise_2, exercise_3, exercise_4, exercise_5, exercise_6, exercise_7, exercise_8, exercise_9,
+    exercise_10, exercise_11, exercise_12, exercise_13, exercise_14, exercise_15, exercise_16, exercise_17, exercise_18, exercise_19,
+    exercise_20, exercise_21, exercise_22, exercise_23, exercise_24, exercise_25, exercise_26, exercise_27, exercise_28, exercise_29,
+    exercise_30, exercise_31, exercise_32, exercise_33,]
+
+
+// Фунации для секции База Упражнений
+        
+// Добавление всех упражнений из массива allExercises на страницу База Упражнений
+            // Получаем элемент списка, куда будут добавляться упражнения
+            const ExercisesListExercisesList = document.getElementById('exercisesBase-screen-exercisesList');
+
+            // Функция для определения дополнительного класса для nameBox в зависимости от типа упражнения
+            function getTypeClass(exerciseType) {
+            switch (exerciseType) {
+                case "Подтягивания":
+                return "exercisesBase-screen-exercisesList-item-text-nameBox-pullExercises";
+                case "Отжимания":
+                return "exercisesBase-screen-exercisesList-item-text-nameBox-pushExercises";
+                case "Ноги":
+                return "exercisesBase-screen-exercisesList-item-text-nameBox-legsExercises";
+                case "Разводки":
+                return "exercisesBase-screen-exercisesList-item-text-nameBox-flyExercises";
+                case "Скручивания":
+                return "exercisesBase-screen-exercisesList-item-text-nameBox-curlExercises";
+                default:
+                return "";
+            }
+            }
+
+            // Функция для определения дополнительного класса для кнопки в зависимости от типа упражнения
+            function getButtonClass(exerciseType) {
+            switch (exerciseType) {
+                case "Подтягивания":
+                return "exercisesBase-screen-exercisesList-item-text-button-pullExercises";
+                case "Отжимания":
+                return "exercisesBase-screen-exercisesList-item-text-button-pushExercises";
+                case "Ноги":
+                return "exercisesBase-screen-exercisesList-item-text-button-legsExercises";
+                case "Разводки":
+                return "exercisesBase-screen-exercisesList-item-text-button-flyExercises";
+                case "Скручивания":
+                return "exercisesBase-screen-exercisesList-item-text-button-curlExercises";
+                default:
+                return "";
+            }
+            }
+
+            // Функция для очистки контейнера перед добавлением новых элементов
+            function clearExerciseList() {
+            ExercisesListExercisesList.replaceChildren();
+            }
+
+    // Функция для добавления упражнений в список
+    function renderExercises(exercises) {
+    // Сначала очищаем контейнер
+    clearExerciseList();
+
+    exercises.forEach(exercise => {
+        // Создаем новый элемент <li>
+        const exerciseItem = document.createElement('li');
+        exerciseItem.className = 'exercisesBase-screen-exercisesList-item';
+
+        // Создаем контейнер для текста
+        const textDiv = document.createElement('div');
+        textDiv.className = 'exercisesBase-screen-exercisesList-item-text';
+
+        // Создаем элемент для названия упражнения
+        const nameBox = document.createElement('div');
+        nameBox.className = 'exercisesBase-screen-exercisesList-item-text-nameBox';
+        
+        // Добавляем класс для nameBox в зависимости от типа упражнения
+        const additionalNameClass = getTypeClass(exercise.type);
+        if (additionalNameClass) {
+        nameBox.classList.add(additionalNameClass);
+        }
+        
+        const nameElement = document.createElement('h3');
+        nameElement.className = 'exercisesBase-screen-exercisesList-item-text-name';
+        nameElement.textContent = exercise.name;
+        nameBox.appendChild(nameElement);
+
+        const lineDiv = document.createElement('div');
+        lineDiv.className = 'exercisesBase-screen-exercisesList-item-text-line';
+
+        const typeElement = document.createElement('h4');
+        typeElement.className = 'exercisesBase-screen-exercisesList-item-text-type';
+        typeElement.textContent = exercise.type;
+
+        const difficultElement = document.createElement('h4');
+        difficultElement.className = 'exercisesBase-screen-exercisesList-item-text-difficult';
+        difficultElement.textContent = exercise.difficult;
+
+        // Создаем кнопку "Подробней" в виде ссылки
+        const buttonElement = document.createElement('button');
+        buttonElement.className = 'exercisesBase-screen-exercisesList-item-text-button';
+        
+        // Добавляем класс для кнопки в зависимости от типа упражнения
+        const additionalButtonClass = getButtonClass(exercise.type);
+        if (additionalButtonClass) {
+        buttonElement.classList.add(additionalButtonClass);
+        }
+        
+        // Устанавливаем ссылку на кнопку
+        buttonElement.onclick = () => navButtonForward();
+        buttonElement.textContent = 'Подробней';
+
+        // Добавляем все текстовые элементы в контейнер
+        textDiv.appendChild(nameBox);
+        textDiv.appendChild(lineDiv);
+        textDiv.appendChild(typeElement);
+        textDiv.appendChild(difficultElement);
+        textDiv.appendChild(buttonElement);
+
+        const imgBox = document.createElement('div');
+        imgBox.className = 'exercisesBase-screen-exercisesList-item-imgBox';
+        const imgElement = document.createElement('img');
+        imgElement.className = 'exercisesBase-screen-exercisesList-item--imgBox-img';
+        imgElement.src = exercise.img;
+        imgElement.alt = exercise.name;
+        imgBox.appendChild(imgElement);
+
+        exerciseItem.appendChild(textDiv);
+        exerciseItem.appendChild(imgBox);
+        ExercisesListExercisesList.appendChild(exerciseItem);
+    });
     }
-    if (mainContainerWidthPosition > 1) {
-        slaveContainerWidthRight = slaveContainerWidth - mainContainerWidth
-        document.querySelector('.slave-container').style.right = slaveContainerWidthRight + 'px'
-    }
+
+    // Очистка и рендеринг упражнений
+    clearExerciseList();
+    renderExercises(allExerciseBase);
+
+
+
+// Скрытие и показ фильтра упражнений при прокрутке
+    document.addEventListener('DOMContentLoaded', function () {
+    const listElement = document.querySelector('#exercisesBase-screen-exercisesList');
+    const difficultButtons = document.querySelector('#exercisesBase-screen-difficultSortButtons');
+    const typeButtons = document.querySelector('#exercisesBase-screen-typeSortButtons');
+  
+    if (!listElement || !difficultButtons || !typeButtons) return;
+  
+    let lastScrollTop = 0;
+  
+    listElement.addEventListener('scroll', function () {
+      const currentScrollTop = listElement.scrollTop;
+  
+      if (currentScrollTop > lastScrollTop) {
+        // Скролл вниз — скрыть кнопки
+        difficultButtons.style.display = 'none';
+        typeButtons.style.display = 'none';
+        listElement.style.gridRowStart = 3;
+        listElement.style.gridRowEnd = 6;
+            const itemHeight = document.querySelector('.exercisesBase-screen-exercisesList-item').offsetHeight;
+        listElement.style.paddingTop = itemHeight + 'px';
+        listElement.style.paddingBottom = itemHeight + 'px';
+      } else {
+        // Скролл вверх — показать кнопки
+        difficultButtons.style.display = 'flex';
+        typeButtons.style.display = 'flex';
+        listElement.style.gridRowStart = 5;
+        listElement.style.gridRowEnd = 6;
+        listElement.style.paddingTop = '0px';
+      }
+  
+      lastScrollTop = currentScrollTop;
+    });
+  });
+  
+
+
+
+
+
+
+  // Функция для применения фильтра по сложности
+function filterByDifficulty(exercise, selectedDifficulty) {
+    return selectedDifficulty === "" || exercise.difficult === selectedDifficulty;
+  }
+  
+  // Функция для применения фильтра по типу упражнения
+  function filterByType(exercise, selectedType) {
+    return selectedType === "" || exercise.type === selectedType;
+  }
+  
+  // Функция для отображения упражнений в соответствии с фильтрами
+  function renderFilteredExercises(exercises, selectedDifficulty, selectedType) {
+    const filteredExercises = exercises.filter(exercise =>
+      filterByDifficulty(exercise, selectedDifficulty) &&
+      filterByType(exercise, selectedType)
+    );
+  
+    // Очистить и заново отобразить упражнения (реализовать вашу логику отображения)
+    clearExerciseList();
+    renderExercises(filteredExercises);
+  }
+  
+  // Обработчик для кнопок фильтра по сложности
+  const difficultyButtons = document.querySelectorAll('#exercisesBase-screen-difficultSortButtons button');
+  let selectedDifficulty = ""; // Хранит выбранную сложность (пусто, если нет фильтра)
+  
+  difficultyButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Если нажата та же кнопка, сбрасываем фильтрацию
+      if (selectedDifficulty === button.dataset.difficulty) {
+        selectedDifficulty = ""; // Сбрасываем фильтр
+        button.classList.remove('active');
+      } else {
+        selectedDifficulty = button.dataset.difficulty; // Применяем новый фильтр
+        // Сбрасываем активные классы на всех кнопках
+        difficultyButtons.forEach(b => b.classList.remove('active'));
+        button.classList.add('active'); // Добавляем активный класс
+      }
+      
+      // Применяем фильтрацию
+      renderFilteredExercises(allExerciseBase, selectedDifficulty, selectedType);
+    });
+  });
+  
+  // Обработчик для кнопок фильтра по типу движения
+  const typeButtons = document.querySelectorAll('#exercisesBase-screen-typeSortButtons button');
+  let selectedType = ""; // Хранит выбранный тип упражнения (пусто, если нет фильтра)
+  
+  typeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Если нажата та же кнопка, сбрасываем фильтрацию
+      if (selectedType === button.dataset.type) {
+        selectedType = ""; // Сбрасываем фильтр
+        button.classList.remove('active');
+      } else {
+        selectedType = button.dataset.type; // Применяем новый фильтр
+        // Сбрасываем активные классы на всех кнопках
+        typeButtons.forEach(b => b.classList.remove('active'));
+        button.classList.add('active'); // Добавляем активный класс
+      }
+      
+      // Применяем фильтрацию
+      renderFilteredExercises(allExerciseBase, selectedDifficulty, selectedType);
+    });
+  });
+  
+  // Инициализация data-атрибутов для кнопок
+  difficultyButtons[0].dataset.difficulty = "Облегченное упражнение";
+  difficultyButtons[1].dataset.difficulty = "Базовое упражнение";
+  difficultyButtons[2].dataset.difficulty = "Продвинутое упражнение";
+  
+  typeButtons[0].dataset.type = "Подтягивания";
+  typeButtons[1].dataset.type = "Отжимания";
+  typeButtons[2].dataset.type = "Разводки";
+  typeButtons[3].dataset.type = "Скручивания";
+  typeButtons[4].dataset.type = "Ноги";
+
+
+
+
+
+
+
+
+
+
+
+// Хранение текущих фильтров и поискового запроса
+let searchQuery = "";
+
+// Функция для применения поиска по названию
+function filterBySearch(exercise, searchQuery) {
+  return exercise.name.toLowerCase().includes(searchQuery.toLowerCase());
 }
 
-// Кнопки
-// Функция отключения всех кнопок на 1 секунду
-function disableButtons() {
-        // Находим все кнопки на странице
-        const buttons = document.querySelectorAll('button');
-        // Отключаем каждую кнопку
-        buttons.forEach(button => {
-            button.disabled = true;
-        });
-        // Через 1 секунду включаем кнопки обратно
-        setTimeout(() => {
-            buttons.forEach(button => {
-                button.disabled = false;
-            });
-        }, 1000); // 1000 миллисекунд = 1 секунда
-    }
+// Функция для отображения упражнений с учетом фильтров и поиска
+function renderFilteredExercises(exercises) {
+  // Применяем фильтрацию по сложности и типу
+  const filteredExercises = exercises.filter(exercise =>
+    filterByDifficulty(exercise, selectedDifficulty) &&
+    filterByType(exercise, selectedType) &&
+    filterBySearch(exercise, searchQuery) // Применяем фильтр поиска
+  );
 
+  // Очистить и заново отобразить упражнения (реализовать вашу логику отображения)
+  clearExerciseList();
+  renderExercises(filteredExercises);
+}
 
-
-    // Кнопки навиганции
-        // Кнопка перехода на следующий экран
-        function navButtonForward() {
-            const buttonText = event.target.innerText;
-            if (buttonText === "База упражнений") {
-                mainContainerWidthPosition = mainContainerWidthPosition + 1
-                document.querySelector('.slave-container').style.transition = "right 1s ease-in-out";
-                containersAndScreensSizes()
-                changeSection()
-                document.getElementById("exercisesBase-screen").style.display = "grid";
-                // Фунция отключения всех кнопок на 1 секунда для исключения повторного нажатия
-                disableButtons();
-                setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
-            }
-
-
-        }
-        // Кнопка перехода на предыдущий экран
-        function navButtonBack() {
-               const buttonText = event.target.innerText;
-                if (buttonText === "Назад") {
-                    mainContainerWidthPosition = mainContainerWidthPosition - 1
-                    document.querySelector('.slave-container').style.transition = "right 1s ease-in-out";
-                    setTimeout(() => containersAndScreensSizes(), 1000);
-                    changeSection()
-                    setTimeout(() => document.getElementById("exercisesBase-screen").style.display = "none", 1000);
-                    // Фунция отключения всех кнопок на 1 секунда для исключения повторного нажатия
-                    disableButtons();
-                    setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
-                }
-
-            }
-            
-
-
-        
+// Обработчик для поля ввода поиска
+const searchInput = document.getElementById('exercisesBase-screen-searchForm-input');
+searchInput.addEventListener('input', (event) => {
+  searchQuery = event.target.value; // Сохраняем текущий запрос
+  renderFilteredExercises(allExerciseBase); // Перерисовываем список с учетом фильтров и поиска
+});

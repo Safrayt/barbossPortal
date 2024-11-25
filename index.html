@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/workoutPrograms-screen.css">
     <link rel="stylesheet" href="css/workoutComplex-screen.css">
     <link rel="stylesheet" href="css/exercisesBase-screen.css">
-    <link rel="stylesheet" href="css/musclesChart-screen.css">
+    <link rel="stylesheet" href="css/exercise-screen.css">
 </head>
 <body>
     <!-- главный контейнер сайта -->
@@ -21,8 +21,13 @@
         <div class="slave-container">
             <section id="main-screen" class="screen">
                 <div id="main-screen-header" class="screen-header">
+                    <div class="main-screen-header-logo">
+                        <img id="main-screen-header-logo-img" src="img/logo/logo-200.png" alt="">
+                    </div>
                     <div class="main-screen-header-title-box">
-                        <h1 id="main-screen-header-title" class="screen-header-title">BarBoss DataBase</h1>
+                        <h1 id="main-screen-header-title-main" class="screen-header-title-main">BARBOSS</h1>
+                        <div id="main-screen-header-title-line"></div>
+                        <h1 id="main-screen-header-title-slave" class="screen-header-title-slave">уличные тренировки на турниках</h1>
                     </div>
                 </div>
                 <div id="main-screen-logo"></div>
@@ -36,72 +41,137 @@
             <section id="workoutPrograms-screen" class="screen slave-screen"></section>
             <section id="workoutComplex-screen" class="screen slave-screen"></section>
             <section id="exercisesBase-screen" class="screen slave-screen">
-                <div class="screen-header-reverse">
+                <div class="slave-screen-header">
                     
-                        <button class="slave-screen-header-backButton" onclick="navButtonBack()">Назад</button>
+                     <button class="slave-screen-header-backButton exercisesBase-screen-backButton" onclick="navButtonBack()">Назад</button>
                 
                     <div class="slave-screen-header-title-box">
-                        <h1 class="slave-screen-header-title">База<br> Упражнений</h1>
+                        <h1 class="slave-screen-header-title-main">База Упражнений</h1>
+                        <div class="slave-screen-header-title-line"></div>
+                        <h1  class="slave-screen-header-title-slave">список упражнений</h1>
                     </div>
+                </div>
+                <div id="exercisesBase-screen-searchForm">
+                    <input type="text" id="exercisesBase-screen-searchForm-input" placeholder="Поиск по названию упражнения">
                 </div>
                 <div id="exercisesBase-screen-difficultSortButtons">
                     <button class="exercisesBase-screen-difficultSortButtons slave-screen-sortButtons-font" id="exercisesBase-screen-difficultSortButtons-1">Облегченные</button>
                     <button class="exercisesBase-screen-difficultSortButtons slave-screen-sortButtons-font" id="exercisesBase-screen-difficultSortButtons-2">Базовые</button>
                     <button class="exercisesBase-screen-difficultSortButtons slave-screen-sortButtons-font" id="exercisesBase-screen-difficultSortButtons-3">Продвинутые</button>
                 </div>
-                <div id="exercisesBase-screen-searchForm">
-                    <input type="text" id="exercisesBase-screen-searchForm-input" placeholder="Поиск по названию или мышечной группе">
-                </div>
                 <div id="exercisesBase-screen-typeSortButtons">
-                    <button class="exercisesBase-screen-typeSortButtons" id="exercisesBase-screen-typeSortButtons-pullExrcises">Подтягивания</button>
-                    <button class="exercisesBase-screen-typeSortButtons" id="exercisesBase-screen-typeSortButtons-pushExrcises">Отжимания</button>
-                    <button class="exercisesBase-screen-typeSortButtons" id="exercisesBase-screen-typeSortButtons-flyExrcises">Разводки</button>
-                    <button class="exercisesBase-screen-typeSortButtons" id="exercisesBase-screen-typeSortButtons-curlExrcises">Скручивания</button>
-                    <button class="exercisesBase-screen-typeSortButtons" id="exercisesBase-screen-typeSortButtons-legsExrcises">Ноги</button>
+                    <button class="exercisesBase-screen-typeSortButtons" id="exercisesBase-screen-typeSortButtons-pullExercises">Подтягивания</button>
+                    <button class="exercisesBase-screen-typeSortButtons" id="exercisesBase-screen-typeSortButtons-pushExercises">Отжимания</button>
+                    <button class="exercisesBase-screen-typeSortButtons" id="exercisesBase-screen-typeSortButtons-flyExercises">Разводки</button>
+                    <button class="exercisesBase-screen-typeSortButtons" id="exercisesBase-screen-typeSortButtons-curlExercises">Скручивания</button>
+                    <button class="exercisesBase-screen-typeSortButtons" id="exercisesBase-screen-typeSortButtons-legsExercises">Ноги</button>
                 </div>
-                
+                <ul id="exercisesBase-screen-exercisesList">
+                    <li class="exercisesBase-screen-exercisesList-item">
+                            <div class="exercisesBase-screen-exercisesList-item-text">
+                                <div class="exercisesBase-screen-exercisesList-item-text-nameBox">
+                                    <h3 class="exercisesBase-screen-exercisesList-item-text-name">Подтягивания верхним средним хватом</h3>
+                                </div>
+                                <div class="exercisesBase-screen-exercisesList-item-text-line"></div>
+                                <h4 class="exercisesBase-screen-exercisesList-item-text-type">Подтягивания</h4>
+                                <h4 class="exercisesBase-screen-exercisesList-item-text-difficult">Упрощенное упражнение</h4>
+                                <button class="exercisesBase-screen-exercisesList-item-text-button">Подробней</button>
+                            </div>
+                            <div class="exercisesBase-screen-exercisesList-item-imgBox">
+                                <img class="exercisesBase-screen-exercisesList-item--imgBox-img" src="/img/exercises/exercise_1.png" alt="">
+
+                            </div>
+                    </li>
+                </ul>
             </section>
-            <section id="musclesChart-screen" class="screen slave-screen">
-                <div class="screen-header-reverse">
-                    <button class="slave-screen-header-backButton slave-screen-buttons-button-font" onclick="navButtonBack()">Назад</button>
-                    <h1 class="slave-screen-header-title">База Упражнений</h1>
-                </div>
-                <div id="exercisesBase-screen-searchForm">
-                    <input type="text" id="exercisesBase-screen-searchForm-input" placeholder="Поиск по названию или мышечной группе">
-                </div>
-                <div id="exercisesBase-screen-sortButtons">
-                    <button class="exercisesBase-screen-sortButtons" id="exercisesBase-screen-sortButtons-pullExrcises">Подтягивания</button>
-                    <button class="exercisesBase-screen-sortButtons" id="exercisesBase-screen-sortButtons-pushExrcises">Отжимания</button>
-                    <button class="exercisesBase-screen-sortButtons" id="exercisesBase-screen-sortButtons-flyExrcises">Разводки</button>
-                    <button class="exercisesBase-screen-sortButtons" id="exercisesBase-screen-sortButtons-curlExrcises">Скручивания</button>
-                    <button class="exercisesBase-screen-sortButtons" id="exercisesBase-screen-sortButtons-legsExrcises">Ноги</button>
-                </div>
-
-                <div class="exercisesBase-screen-difficultButtons">
-                    <button id="lowBtn">Начинающим</button>
-                    <button id="middleBtn">Опытным</button>
-                    <button id="highBtn">Продвинутым</button>
-                </div>
-                <div class="exercisesBase-screen-musclesChart">
-                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                    <style type="text/css">
-                        .st0{fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;}
-                    </style>
-                    <path id="_x33_" class="muscle-group st0" d="M132.06,97.6c-13.19,16.25-48.33,63.88-52.85,134.81c-4.9,76.84,29.27,131.86,40.6,148.6
-                        c14.44-20.64,34.01-54.63,42.89-100.34C180.02,191.54,144.6,120.32,132.06,97.6z"/>
-                    <path id="_x32_" class="muscle-group st0" d="M240.06,129.77c-11.31,15.35-51.94,74.21-38.3,146.3c10.44,55.18,51.69,112.9,78.13,107.23
-                        c26.63-5.71,37.56-75.62,29.87-127.15C300.07,191.12,259.64,148.01,240.06,129.77z"/>
-                    <path id="_x31_" class="muscle-group st0" d="M364.15,155.81c26.5-9.66,65.13,20.2,81.96,52.09c17.27,32.71,21.93,87.16-9.19,107.23
-                        c-25.52,16.47-65.02,3.32-85.79-18.38C311.16,254.98,328.44,168.83,364.15,155.81z"/>
-
-                    <!-- Добавьте остальные мышечные группы аналогично -->
-                    </svg>
-                </div>
-
-            </section>
+                <section id="exercise-screen" class="screen slave-screen">
+                    <div class="slave-screen-header">
+                    
+                        <button class="slave-screen-header-backButton exercise-screen-backButton" onclick="navButtonBack()">Назад</button>
+                   
+                        <div class="slave-screen-header-title-box">
+                            <h1 class="slave-screen-header-title-main">Об упражнении</h1>
+                            <div class="slave-screen-header-title-line"></div>
+                            <h1  class="slave-screen-header-title-slave">подробности</h1>
+                        </div>
+                   </div>
+                   <div class="exercise-screen-infoBlock">
+                        <div class="exercise-screen-infoBlock-nameBox">
+                            <div class="exercise-screen-infoBlock-nameBox-text">Австралийские подтягивания верхним хватом</div>
+                        </div>
+                        <div class="exercise-screen-infoBlock-etcBox">
+                            <div class="exercise-screen-infoBlock-etcBox-imgAndVideo">
+                                    <div class="exercise-screen-infoBlock-etc-imgBox">
+                                        <img class="exercise-screen-infoBlock-etc-imgBox-img" src="img/exercises/exercise_1.png" alt="">
+                                    </div>
+                                    <button class="exercise-screen-infoBlock-etc-VideoBox">
+                                        ВИДЕО
+                                    </button>
+                            </div>
+                            <ul class="exercise-screen-infoBlock-etc-disc-list">
+                                <li class="exercise-screen-infoBlock-etc-disc-item">
+                                    <div class="exercise-screen-infoBlock-etc-disc-item-tittleBox">
+                                        <div id="exercise-screen-infoBlock-etc-disc-motionType-tittle" class="exercise-screen-infoBlock-etc-disc-item-tittleBox-text">Тип движения:</div>
+                                    </div>
+                                    <div class="exercise-screen-infoBlock-etc-disc-item-nameBox">
+                                        <div id="exercise-screen-infoBlock-etc-disc-motionType-name" class="exercise-screen-infoBlock-etc-disc-item-nameBox-text">Подтягивания</div>
+                                    </div>
+                                </li>
+                                <li class="exercise-screen-infoBlock-etc-disc-item">
+                                    <div class="exercise-screen-infoBlock-etc-disc-item-tittleBox">
+                                        <div id="exercise-screen-infoBlock-etc-disc-difficultType-tittle" class="exercise-screen-infoBlock-etc-disc-item-tittleBox-text">Сложность:</div>
+                                    </div>
+                                    <div class="exercise-screen-infoBlock-etc-disc-item-nameBox">
+                                        <div id="exercise-screen-infoBlock-etc-disc-difficultType-name" class="exercise-screen-infoBlock-etc-disc-item-nameBox-text">Базовое упражнение</div>
+                                    </div>
+                                </li>
+                                <li class="exercise-screen-infoBlock-etc-disc-item">
+                                    <div class="exercise-screen-infoBlock-etc-disc-item-tittleBox">
+                                        <div id="exercise-screen-infoBlock-etc-disc-equipmentType-tittle" class="exercise-screen-infoBlock-etc-disc-item-tittleBox-text">Оборудование:</div>
+                                    </div>
+                                    <div class="exercise-screen-infoBlock-etc-disc-item-nameBox">
+                                        <div id="exercise-screen-infoBlock-etc-disc-equipmentType-name" class="exercise-screen-infoBlock-etc-disc-item-nameBox-text">Средняя перекладина</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                   </div>
+                   <div class="exercise-screen-muscleBlock">
+                        <div class="exercise-screen-muscleBlock-muscleBox">
+                            <div class="exercise-screen-muscleBlock-muscleBox-allMuscle">
+                                <svg class="exercise-screen-muscleBlock-muscleBox-allMuscle-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                    viewBox="0 0 440 290" xml:space="preserve">
+                                    <g id="exercise-screen-muscleBlock-muscleBox-allMuscle-svg-activeMusclels">
+                                        <path id="1"  d="M145.7,19.7c-8.5,5.3-17,10.5-25.6,15.8c8.5,0.2,17,0.4,25.6,0.5C145.7,30.6,145.7,25.2,145.7,19.7z" fill="#FC0303" stroke="#010101" stroke-miterlimit="10"/>
+                                        <path id="2"  d="M167.1,19.1c8,5.3,16,10.5,24,15.8c-8,0.2-16,0.4-24,0.5C167.1,30,167.1,24.5,167.1,19.1z" fill="#FC0303" stroke="#010101" stroke-miterlimit="10"/>
+                                        <path id="3"  d="M292.1,13.4c-10.9,6.8-21.8,13.6-32.8,20.4c8.5,0.2,17,0.4,25.6,0.5c2.3-3.6,4.6-7.2,6.9-10.8C291.9,20.2,292,16.8,292.1,13.4z" fill="#FC0303" stroke="#010101" stroke-miterlimit="10"/>
+                                        <path id="4"  d="M293.4,13.4c10.9,6.8,21.8,13.6,32.8,20.4c-8.5,0.2-17,0.4-25.6,0.5c-2.3-3.6-4.6-7.2-6.9-10.8C293.6,20.2,293.5,16.8,293.4,13.4z" fill="#FC0303" stroke="#010101" stroke-miterlimit="10"/>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                   </div>
+                   <div class="exercise-screen-about">
+                        <div class="exercise-screen-aboutBox">
+                            <div class="exercise-screen-about-tittle">Порядок выполнения:</div>
+                            <div class="exercise-screen-about-text">
+                                ● Повисните на турнике.<br>
+                                ● Поднимите ноги чуть выше уголка. Ноги могут быть чуть согнуты в коленях - это вопрос растяжки.<br>
+                                ● После преодоления отметки в 90 градусов, сосредоточьтесь на скручивании.<br>
+                                ● Опустите ноги в начальное положение. Контролируйте спуск.<br>
+                                ● Не используя раскачку - повторите движение.<br>
+                                ● Повисните на турнике.<br>
+                                ● Поднимите ноги чуть выше уголка. Ноги могут быть чуть согнуты в коленях - это вопрос растяжки.<br>
+                                ● После преодоления отметки в 90 градусов, сосредоточьтесь на скручивании.<br>
+                                ● Опустите ноги в начальное положение. Контролируйте спуск.<br>
+                                ● Не используя раскачку - повторите движение.<br>
+                            </div>
+                        </div>
+                   </div>
+                </section>
         </div>
     </div>
     <script src="script.js"></script>
+    <script src="engine.js"></script>
 </body>
 </html>

@@ -1,27 +1,25 @@
 #exercisesBase-screen {
     display: none;
     /* grid-template-rows: (mainContainerHeight - mainContainerWidth)*0.15 + 'px ' + (mainContainerHeight - mainContainerWidth)*0.85 + 'px ' + mainContainerWidth/2 + 'px ' + mainContainerWidth/2 + 'px ';*/
-    background-image: url(/img/background/main-screen/main-screen-1.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 
+
+
 #exercisesBase-screen-searchForm {
-    margin: 0 5px 0px;
-    background-color: var(--color-box);
+    margin-top: 5px;
     border-right: 2px solid white;
     border-left: 2px solid white;
+    background-color: transparent;
 
     display: flex;
     justify-content: center;
     align-items: center;
     
     
-    grid-row-start: 3;
+    grid-row-start: 2;
     grid-column-start: 1;
-    grid-row-end: 4;
+    grid-row-end: 3;
     grid-column-end: 2;
 }
 
@@ -33,35 +31,26 @@
         border: 1px solid #ccc;
         border-radius: 5px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        transition: border-color 0.2s;
         
-        border: 2px solid hsla(0, 0%, 100%, 0.5);
+        border: 2px solid hsla(0, 11%, 2%, 0.5);
         border-radius: 5px;
-        background-color: rgba(73, 255, 234, 0.273);
+        
 }
 
 #exercisesBase-screen-searchForm-input::placeholder {
-    
-    color: white;
+    color: rgb(0, 0, 0);
     outline: none;
-    text-shadow: 2px 1px 1px rgb(0, 0, 0);
 }
 
 #exercisesBase-screen-searchForm-input:focus {
-    background-color: var(--color-box);
-    border-color: white;
-    color: white;
+    background-color: white;
+    border-color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
     outline: none;
-    text-shadow: 2px 1px 1px rgb(0, 0, 0);
 }
 
 #exercisesBase-screen-typeSortButtons {
     margin: 0 5px 0px;
-    background-color: var(--color-box);
-    border-right: 2px solid white;
-    border-left: 2px solid white;
-    border-radius: 0 0 5px 5px;
-    border-bottom: 2px solid white;
     
     display: flex;
     justify-content: center;
@@ -79,29 +68,73 @@
 .exercisesBase-screen-typeSortButtons {
     height: 40%;
     width: auto;
-    padding: 0 5%;
+    padding-left: 6px;
+    padding-right: 12px;
     font-size: var(--button-font-size-1);
     font-family: var(--header-font-family);
     font-weight: var(--header-font-weight-500);
     font-style: var(--header-font-style);
 
     border: none;
-    background-color: var(--color-box);
-    color: #fff;
+    background-color: #333333;
+    color: #f4f4f4;
     cursor: pointer;
     transition: background-color 0.2s, color 0.2s;
-    border: 2px solid white;
-    border-radius: 5px;
+    border: none;
+    border-left: 6px solid #363636;
 }
 .exercisesBase-screen-typeSortButtons:hover {
-    background-color: rgba(73, 255, 234, 0.273);
-    border: 2px solid rgba(255, 255, 255, 0.934);
-    border-radius: 5px;
+    border-left: 6px solid #ffbd16;
 }
 
-.exercisesBase-screen-typeSortButtons.active {
-    background-color:rgba(73, 255, 234, 0.273); /* Active state color */
-    color: #fff;
+#exercisesBase-screen-typeSortButtons-pullExercises:hover {
+    border-left: 6px solid #ABEF15;
+}
+#exercisesBase-screen-typeSortButtons-pullExercises.active {
+    border-left: 6px solid #ABEF15;
+}
+#exercisesBase-screen-typeSortButtons-pullExercises.active:hover {
+    border-left: 6px solid #363636;
+}
+
+#exercisesBase-screen-typeSortButtons-pushExercises:hover {
+    border-left: 6px solid #1B58A7;
+}
+#exercisesBase-screen-typeSortButtons-pushExercises.active {
+    border-left: 6px solid #1B58A7;
+}
+#exercisesBase-screen-typeSortButtons-pushExercises.active:hover {
+    border-left: 6px solid #363636;
+}
+
+#exercisesBase-screen-typeSortButtons-flyExercises:hover {
+    border-left: 6px solid #9212A8;
+}
+#exercisesBase-screen-typeSortButtons-flyExercises.active {
+    border-left: 6px solid #9212A8;
+}
+#exercisesBase-screen-typeSortButtons-flyExercises.active:hover {
+    border-left: 6px solid #363636;
+}
+
+#exercisesBase-screen-typeSortButtons-curlExercises:hover {
+    border-left: 6px solid #FF1616;
+}
+#exercisesBase-screen-typeSortButtons-curlExercises.active {
+    border-left: 6px solid #FF1616;
+}
+#exercisesBase-screen-typeSortButtons-curlExercises.active:hover {
+    border-left: 6px solid #363636;
+}
+
+#exercisesBase-screen-typeSortButtons-legsExercises:hover {
+    border-left: 6px solid #FF9816
+}
+#exercisesBase-screen-typeSortButtons-legsExercises.active {
+    border-left: 6px solid #FF9816
+}
+#exercisesBase-screen-typeSortButtons-legsExercises.active:hover {
+    border-left: 6px solid #363636;
 }
 
 
@@ -109,42 +142,236 @@
 
 
 #exercisesBase-screen-difficultSortButtons {
+    background-color: transparent;
     margin: 5px 5px 0px;
-    background-color: var(--color-box);
-    border-top: 2px solid white;
-    border-right: 2px solid white;
-    border-left: 2px solid white;
-    border-radius: 5px 5px 0 0;
-
     display: flex;
     justify-content: center;
     align-items: center;
     
     column-gap: var(--site-height-025);
 
-    grid-row-start: 2;
+    grid-row-start: 3;
     grid-column-start: 1;
-    grid-row-end: 3;
+    grid-row-end: 4;
     grid-column-end: 2;
 }
 
 .exercisesBase-screen-difficultSortButtons {
     border: none;
-    padding: 1% 2%;
-    background-color: transparent;
-
+    padding: 5px 5px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #525252;
     cursor: pointer;
     transition: background-color 0.2s, color 0.2s;
-
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.68);
+    border-left: 8px solid #363636;
 
 }
 .exercisesBase-screen-difficultSortButtons:hover {
-    background-color: rgba(73, 255, 234, 0.273);
+    border-left: 8px solid #ffbd16;
+}
+
+.exercisesBase-screen-difficultSortButtons:active {
+    transform: scale(95%);
 }
 
 .exercisesBase-screen-difficultSortButtons.active {
-    background-color: rgba(73, 255, 234, 0.273); /* Active state color */   
+    transform: scale(95%);
+    border-left: 8px solid #ffbd16;
 }
+
+
+
+
+.slave-screen-sortButtons-font {
+    font-size: var(--button-font-size-004);
+    font-family: var(--header-font-family);
+    font-weight: var(--button-font-weight-700);
+    font-style: var(--button-font-style);
+
+}
+
+
+
+#exercisesBase-screen-exercisesList {
+    grid-row-start: 5;
+    grid-column-start: 1;
+    grid-row-end: 6;
+    grid-column-end: 2;
+
+    /* Прокрутка списка упражнений */
+    overflow-y:scroll;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    
+    margin-bottom: 20px;
+}
+
+
+.exercisesBase-screen-exercisesList-item {
+    width: var(--site-width-90);
+    display: flex;
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    background-color: #ffffff; /* Тёмный фон для соответствия интерфейсу */
+    border-radius: 8px; /* Сглаженные углы */
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.68);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    color: #ffffff; /* Белый текст для контраста */
+}
+
+.exercisesBase-screen-exercisesList-item:hover {
+    transform: scale(102%);
+}
+
+.exercisesBase-screen-exercisesList-item-imgBox {
+    display: flex;
+    width: 30%;
+    height: auto;
+    border-radius: 6px;
+    object-fit: cover;
+    align-self: center;
+    padding-right: 10px;
+}
+
+.exercisesBase-screen-exercisesList-item--imgBox-img {
+    width: 100%;
+    height: fit-content;
+    border: 2px solid #cccccc;
+    border-radius: 5px;
+}
+
+.exercisesBase-screen-exercisesList-item-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 80%;
+}
+.exercisesBase-screen-exercisesList-item-text-nameBox {
+    width: 95%;
+    margin-top: 10px;
+    border: none;
+    background: linear-gradient(90deg, rgba(51,51,51,1) 0%, rgba(51,51,51,1) 86%, rgba(51,51,51,0.6559873949579832) 93%, rgba(51,51,51,0) 100%);;
+    color: #f4f4f4;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    border: none;
+    border-left: 6px solid black;
+}
+
+.exercisesBase-screen-exercisesList-item-text-nameBox-pullExercises {
+    border-left: 6px solid #ABEF15;
+}
+.exercisesBase-screen-exercisesList-item-text-nameBox-pushExercises {
+    border-left: 6px solid #1B58A7;
+}
+.exercisesBase-screen-exercisesList-item-text-nameBox-flyExercises {
+    border-left: 6px solid #9212A8;
+}
+.exercisesBase-screen-exercisesList-item-text-nameBox-curlExercises {
+    border-left: 6px solid #FF1616;
+}
+.exercisesBase-screen-exercisesList-item-text-nameBox-legsExercises {
+    border-left: 6px solid #FF9816
+}
+
+.exercisesBase-screen-exercisesList-item-text-name {
+    margin-right: 10%;
+    margin-top:3px;
+    margin-bottom:3px;
+    margin-left: 3px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #f5f5f5;
+    font-size: var(--button-font-size-1);
+    font-family: var(--header-font-family);
+    font-weight: var(--header-font-weight-500);
+    font-style: var(--header-font-style);
+}
+
+.exercisesBase-screen-exercisesList-item-text-line {
+        width: 95%;
+        margin-left: 5%;
+        background-color: #cccccc;
+        height: 2px;
+}
+
+.exercisesBase-screen-exercisesList-item-text-difficult {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 5%;
+    color: #999999;
+    font-size: var(--button-font-size-1);
+    font-family: var(--header-font-family);
+    font-weight: var(--header-font-weight-700);
+    font-style: var(--header-font-style);
+}
+
+.exercisesBase-screen-exercisesList-item-text-type {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 5%;
+    color: var(--color-title-main);
+    font-size: var(--button-font-size-1);
+    font-family: var(--header-font-family);
+    font-weight: var(--header-font-weight-500);
+    font-style: var(--header-font-style);
+}
+
+.exercisesBase-screen-exercisesList-item-text-button {
+    text-decoration: none;
+    display: flex;
+    align-self: flex-start;
+    background-color: #333333; /* Яркая кнопка */
+    color: #ffffff;
+    border: none;   
+    border-radius: 0 8px 0 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 13px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s ease;
+    border-left: 8px solid #333333;
+
+    font-size: var(--button-font-size-1);
+    font-family: var(--header-font-family);
+    font-weight: var(--header-font-weight-100);
+    font-style: var(--header-font-style);
+}
+
+.exercisesBase-screen-exercisesList-item-text-button:hover {
+    border-left: 8px solid #000000;
+}
+
+.exercisesBase-screen-exercisesList-item-text-button-pullExercises:hover {
+    border-left: 8px solid #ABEF15;
+}
+.exercisesBase-screen-exercisesList-item-text-button-pushExercises:hover {
+    border-left: 8px solid #1B58A7;
+}
+.exercisesBase-screen-exercisesList-item-text-button-flyExercises:hover {
+    border-left: 8px solid #9212A8;
+}
+.exercisesBase-screen-exercisesList-item-text-button-curlExercises:hover {
+    border-left: 8px solid #FF1616;
+}
+.exercisesBase-screen-exercisesList-item-text-button-legsExercises:hover {
+    border-left: 8px solid #FF9816
+}
+
+.exercisesBase-screen-exercisesList-item-text-button:active {
+    transform: scale(102%);
+}
+
+
+
+
+
+
 
 
 

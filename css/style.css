@@ -12,7 +12,6 @@
         margin: 0 auto;
         /* height = mainContainerHeight + 'px' */
         /* width = mainContainerWidth + 'px' */
-        background-color: black;
     }
 
     /* рабский контейнер сайта */
@@ -23,6 +22,10 @@
         /* height = slaveContainerHeight + 'px' */
         /* width = slaveContainerWidth + 'px' */
         /* transition: right 1s ease-in-out */
+        background-image: url(/img/background/background\ pattern.png);
+        background-color: transparent;
+        background-repeat: repeat;
+        background-position: left;
     }
 
 /* Секции */
@@ -32,24 +35,27 @@
         gap: 0px;
     }
     .screen-header {
-        background-image: linear-gradient(142deg, rgba(250, 250, 250, 0.05) 0%, rgba(250, 250, 250, 0.05) 53%,rgba(64, 64, 64, 0.05) 53%, rgba(64, 64, 64, 0.05) 100%),linear-gradient(29deg, rgba(10, 10, 10, 0.05) 0%, rgba(10, 10, 10, 0.05) 27%,rgba(94, 94, 94, 0.05) 27%, rgba(94, 94, 94, 0.05) 100%),linear-gradient(118deg, rgba(4, 4, 4, 0.05) 0%, rgba(4, 4, 4, 0.05) 18%,rgba(188, 188, 188, 0.05) 18%, rgba(188, 188, 188, 0.05) 100%),linear-gradient(90deg, #9eddff,rgb(193,235,255));
+        background-color: black;
 
         grid-column-start: 1;
         grid-column-end: 3;
     }
 
-    .screen-header-reverse {
-        background-image: linear-gradient(322deg, rgba(250, 250, 250, 0.05) 0%, rgba(250, 250, 250, 0.05) 53%,rgba(64, 64, 64, 0.05) 53%, rgba(64, 64, 64, 0.05) 100%),linear-gradient(209deg, rgba(10, 10, 10, 0.05) 0%, rgba(10, 10, 10, 0.05) 27%,rgba(94, 94, 94, 0.05) 27%, rgba(94, 94, 94, 0.05) 100%),linear-gradient(298deg, rgba(4, 4, 4, 0.05) 0%, rgba(4, 4, 4, 0.05) 18%,rgba(188, 188, 188, 0.05) 18%, rgba(188, 188, 188, 0.05) 100%),linear-gradient(270deg, rgb(158,221,255),rgb(193,235,255));
-        
-        grid-column-start: 1;
-        grid-column-end: 3;
-    }
-    .screen-header-title {
+    .screen-header-title-main {
         font-size: var(--header-font-size-008);
         font-family: var(--header-font-family);
-        font-weight: var(--header-font-weight-700);
+        font-weight: var(--header-font-weight-500);
         font-style: var(--header-font-style);
     }
+
+    .screen-header-title-slave {
+        font-size: var(--header-font-size-008);
+        font-family: var(--header-font-family);
+        font-weight: var(--header-font-weight-500);
+        font-style: var(--header-font-style);
+    }
+
+    
 
     
 
