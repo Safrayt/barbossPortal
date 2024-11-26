@@ -5,6 +5,9 @@ let exercise_1 = {
     type : "Подтягивания",
     img : "img/exercises/exercise_1.png",
     difficult : 'Облегченное упражнение',
+    equipment : 'Вертикальный столб',
+    musclels : '<path id="1"  d="M145.7,19.7c-8.5,5.3-17,10.5-25.6,15.8c8.5,0.2,17,0.4,25.6,0.5C145.7,30.6,145.7,25.2,145.7,19.7z" fill="#FC0303" stroke="#010101" stroke-miterlimit="10"/> <path id="2"  d="M167.1,19.1c8,5.3,16,10.5,24,15.8c-8,0.2-16,0.4-24,0.5C167.1,30,167.1,24.5,167.1,19.1z" fill="#FC0303" stroke="#010101" stroke-miterlimit="10"/><path id="3"  d="M292.1,13.4c-10.9,6.8-21.8,13.6-32.8,20.4c8.5,0.2,17,0.4,25.6,0.5c2.3-3.6,4.6-7.2,6.9-10.8C291.9,20.2,292,16.8,292.1,13.4z" fill="#FC0303" stroke="#010101" stroke-miterlimit="10"/><path id="4"  d="M293.4,13.4c10.9,6.8,21.8,13.6,32.8,20.4c-8.5,0.2-17,0.4-25.6,0.5c-2.3-3.6-4.6-7.2-6.9-10.8C293.6,20.2,293.5,16.8,293.4,13.4z" fill="#FC0303" stroke="#010101" stroke-miterlimit="10"/>',
+    about : '● Повисните на турнике.<br>● Поднимите ноги чуть выше уголка. Ноги могут быть чуть согнуты в коленях - это вопрос растяжки.<br>● После преодоления отметки в 90 градусов, сосредоточьтесь на скручивании.<br>● Опустите ноги в начальное положение. Контролируйте спуск.<br>● Не используя раскачку - повторите движение.<br>● Повисните на турнике.<br>● Поднимите ноги чуть выше уголка. Ноги могут быть чуть согнуты в коленях - это вопрос растяжки.<br>● После преодоления отметки в 90 градусов, сосредоточьтесь на скручивании.<br>● Опустите ноги в начальное положение. Контролируйте спуск.<br>● Не используя раскачку - повторите движение.<br>',
     url : 'https://t.me/swtBarBosS/2937'
   }
   
@@ -376,6 +379,8 @@ let exercise_1 = {
         // Устанавливаем ссылку на кнопку
         buttonElement.onclick = () => navButtonForward();
         buttonElement.textContent = 'Подробней';
+        // Устанавливаем действия при нажатии на кнопку
+        buttonElement.addEventListener("click", exercisesBaseAboutExerciseButton)
 
         // Добавляем все текстовые элементы в контейнер
         textDiv.appendChild(nameBox);
@@ -560,3 +565,42 @@ searchInput.addEventListener('input', (event) => {
   searchQuery = event.target.value; // Сохраняем текущий запрос
   renderFilteredExercises(allExerciseBase); // Перерисовываем список с учетом фильтров и поиска
 });
+
+
+
+
+
+
+
+
+
+
+
+
+// функция exercisesBase-aboutExercise-button, которая заполняет DOM exercise-screen в зависимости от названия упражнения, на котором была нажата кнопка "Подробнее":
+
+function exercisesBaseAboutExerciseButton(event) {
+  const exerciseName = event.target.closest(".exercisesBase-screen-exercisesList-item").querySelector(".exercisesBase-screen-exercisesList-item-text-name").textContent.trim();
+
+  const exercise = allExerciseBase.find(ex => ex.name === exerciseName);
+
+  if (!exercise) {
+    console.error("Упражнение не найдено!");
+    return;
+  }
+
+  // Заполнение данных в exercise-screen
+  document.querySelector(".exercise-screen-infoBlock-nameBox-text").textContent = exercise.name;
+  document.querySelector(".exercise-screen-infoBlock-etc-imgBox-img").src = exercise.img;
+  document.querySelector(".exercise-screen-infoBlock-etc-VideoURL").href = exercise.url;
+  document.querySelector("#exercise-screen-infoBlock-etc-disc-motionType-name").textContent = exercise.type;
+  document.querySelector("#exercise-screen-infoBlock-etc-disc-difficultType-name").textContent = exercise.difficult;
+  document.querySelector("#exercise-screen-infoBlock-etc-disc-equipmentType-name").textContent = exercise.equipment;
+  
+  // Заполнение активных мышц
+  const svgContainer = document.querySelector("#exercise-screen-muscleBlock-muscleBox-allMuscle-svg-activeMusclels");
+  svgContainer.innerHTML = exercise.musclels;
+
+  // Заполнение описания
+  document.querySelector(".exercise-screen-about-text").innerHTML = exercise.about;
+}
