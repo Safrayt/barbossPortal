@@ -179,7 +179,7 @@
 
 .exercise-screen-muscleBlock-muscleBox-allMuscle {
     width: 100%;
-    background: url('/img/muscles/musclesMapScale.svg') no-repeat;
+    background: url('../img/muscles/musclesMapScale.svg') no-repeat;
     background-size: contain; /* Подгонка по размеру */
 }
 

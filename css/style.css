@@ -22,7 +22,7 @@
         /* height = slaveContainerHeight + 'px' */
         /* width = slaveContainerWidth + 'px' */
         /* transition: right 1s ease-in-out */
-        background-image: url(/img/background/background\ pattern.png);
+        background-image: url(../img/background/background\ pattern.png);
         background-color: transparent;
         background-repeat: repeat;
         background-position: left;
