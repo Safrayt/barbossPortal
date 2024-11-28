@@ -229,9 +229,7 @@
 .exercisesBase-screen-exercisesList-item-imgBox {
     display: flex;
     width: 30%;
-    height: auto;
     border-radius: 6px;
-    object-fit: cover;
     align-self: center;
     padding-right: 10px;
 }
