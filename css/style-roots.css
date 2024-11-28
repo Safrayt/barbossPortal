@@ -79,6 +79,13 @@
     --button-font-style: normal;
 
 
+
+    --font-size-1: 0;
+    --font-size-2: 0;
+    --font-size-3: 0;
+    --font-size-4: 0;
+    --font-size-5: 0;
+
   /* Переменные для цветов */
 
     /* Цвета боксов подложки*/

@@ -29,7 +29,14 @@
 .exercise-screen-infoBlock-nameBox-text {
     color: #333333;
     padding: 5px 10px;
-    font-size: var(--header-font-size-006);
+    font-size: var(--font-size-1);
+    font-family: var(--header-font-family);
+    font-weight: var(--header-font-weight-400);
+    font-style: var(--header-font-style);
+}
+
+.exercise-screen-infoBlock-etc-disc-item-nameBox-text {
+    font-size: var(--font-size-6);
     font-family: var(--header-font-family);
     font-weight: var(--header-font-weight-400);
     font-style: var(--header-font-style);
@@ -98,7 +105,7 @@
 
     color: #f3f3f3;
     padding: 5px 10px;
-    font-size: var(--header-font-size-007);
+    font-size: var(--font-size-1);
     font-family: var(--header-font-family);
     font-weight: var(--header-font-weight-400);
     font-style: var(--header-font-style);
@@ -135,7 +142,7 @@
 }
 
 .exercise-screen-infoBlock-etc-disc-item-tittleBox-text {
-    font-size: var(--header-font-size-001);
+    font-size: var(--font-size-6);
     font-family: var(--header-font-family);
     font-weight: var(--header-font-weight-400);
     font-style: var(--header-font-style);
@@ -149,12 +156,6 @@
     border-left: 5px solid #cccccc;
 }
 
-.exercise-screen-infoBlock-etc-disc-type-nameText {
-    font-size: var(--header-font-size-001);
-    font-family: var(--header-font-family);
-    font-weight: var(--header-font-weight-400);
-    font-style: var(--header-font-style);
-}
 
 .exercise-screen-muscleBlock {
     width: 100%;
@@ -212,7 +213,7 @@
     color: #333333;
     margin-top: 5px;
     padding: 5px 10px;
-    font-size: var(--header-font-size-006);
+    font-size: var(--font-size-3);
     font-family: var(--header-font-family);
     font-weight: var(--header-font-weight-400);
     font-style: var(--header-font-style);
@@ -226,9 +227,13 @@
     color: #333333;
     margin-top: 5px;
     padding: 5px 10px;
-    font-size: var(--header-font-size-002);
+    font-size: var(--font-size-6);
     font-family: var(--header-font-family);
     font-weight: var(--header-font-weight-400);
     font-style: var(--header-font-style);
     margin-bottom: 5px;
 }
+
+/* Стили для активных мышц */
+.st0{fill:#E01B2F;}
+.st1{fill:#E85D64;}

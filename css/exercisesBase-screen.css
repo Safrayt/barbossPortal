@@ -27,7 +27,7 @@
         text-align: center;
         width: var(--site-width-90);
         height: var(--site-height-5);
-        font-size: 1em;
+        font-size: var(--font-size-8);
         border: 1px solid #ccc;
         border-radius: 5px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -70,7 +70,7 @@
     width: auto;
     padding-left: 6px;
     padding-right: 12px;
-    font-size: var(--button-font-size-1);
+    font-size: var(--font-size-7);
     font-family: var(--header-font-family);
     font-weight: var(--header-font-weight-500);
     font-style: var(--header-font-style);
@@ -185,7 +185,7 @@
 
 
 .slave-screen-sortButtons-font {
-    font-size: var(--button-font-size-004);
+    font-size: var(--font-size-8);
     font-family: var(--header-font-family);
     font-weight: var(--button-font-weight-700);
     font-style: var(--button-font-style);
@@ -282,10 +282,9 @@
     margin-top:3px;
     margin-bottom:3px;
     margin-left: 3px;
-    font-size: 1.1rem;
     font-weight: 700;
     color: #f5f5f5;
-    font-size: var(--button-font-size-1);
+    font-size: var(--font-size-7);
     font-family: var(--header-font-family);
     font-weight: var(--header-font-weight-500);
     font-style: var(--header-font-style);
@@ -303,7 +302,7 @@
     justify-content: flex-start;
     margin-left: 5%;
     color: #999999;
-    font-size: var(--button-font-size-1);
+    font-size: var(--font-size-8);
     font-family: var(--header-font-family);
     font-weight: var(--header-font-weight-700);
     font-style: var(--header-font-style);
@@ -314,7 +313,7 @@
     justify-content: flex-start;
     margin-left: 5%;
     color: var(--color-title-main);
-    font-size: var(--button-font-size-1);
+    font-size: var(--font-size-7);
     font-family: var(--header-font-family);
     font-weight: var(--header-font-weight-500);
     font-style: var(--header-font-style);
@@ -337,7 +336,7 @@
     transition: background-color 0.2s ease;
     border-left: 8px solid #333333;
 
-    font-size: var(--button-font-size-1);
+    font-size: var(--font-size-6);
     font-family: var(--header-font-family);
     font-weight: var(--header-font-weight-100);
     font-style: var(--header-font-style);

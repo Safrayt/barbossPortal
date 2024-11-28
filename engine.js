@@ -125,7 +125,27 @@ function containersAndScreensSizes() {
     document.documentElement.style.setProperty('--button-font-size-007', mainContainerWidth*0.07 + 'px');
     document.documentElement.style.setProperty('--button-font-size-008', mainContainerWidth*0.08 + 'px');
     document.documentElement.style.setProperty('--button-font-size-010', mainContainerWidth*0.1 + 'px');
+    fontsSizes()
 }
+
+
+    function fontsSizes () {
+    // Размеры шрифта
+    document.documentElement.style.setProperty('--font-size-1', (mainContainerWidth/14) + 'px');
+    document.documentElement.style.setProperty('--font-size-2', (mainContainerWidth/16) + 'px');
+    document.documentElement.style.setProperty('--font-size-3', (mainContainerWidth/18) + 'px');
+    document.documentElement.style.setProperty('--font-size-4', (mainContainerWidth/20) + 'px');
+    document.documentElement.style.setProperty('--font-size-5', (mainContainerWidth/22) + 'px');
+    document.documentElement.style.setProperty('--font-size-6', (mainContainerWidth/24) + 'px');
+    document.documentElement.style.setProperty('--font-size-7', (mainContainerWidth/26) + 'px');
+    document.documentElement.style.setProperty('--font-size-8', (mainContainerWidth/28) + 'px');
+    document.documentElement.style.setProperty('--font-size-9', (mainContainerWidth/30) + 'px');
+    document.documentElement.style.setProperty('--font-size-10', (mainContainerWidth/32) + 'px');
+}
+
+
+
+
 
 function containersResize() {
     window.addEventListener('resize', function() {
@@ -133,7 +153,7 @@ function containersResize() {
     containersAndScreensSizes()
   });
   }
-
+  fontsSizes()
   containersAndScreensSizes()
   containersResize()
 
