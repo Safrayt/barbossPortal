@@ -55,7 +55,7 @@ function containersAndScreensSizes() {
     // сетка для #exercisesBase-screen
     document.querySelector('#exercisesBase-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.06 + 'px '+ mainContainerHeight*0.08 + 'px ' + mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.70 + 'px ';
     // сетка для #exercise-screen
-    document.querySelector('#exercise-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.40 + 'px ' + mainContainerHeight*0.35 + 'px ' + mainContainerHeight*0.15 + 'px ';
+    document.querySelector('#exercise-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ';
    
 
 
