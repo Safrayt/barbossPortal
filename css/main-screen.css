@@ -117,3 +117,8 @@
 
 
 
+
+
+.main-screen-buttons-button-disable {
+ filter: blur(3px);
+}

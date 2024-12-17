@@ -56,6 +56,8 @@ function containersAndScreensSizes() {
     document.querySelector('#exercisesBase-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.06 + 'px '+ mainContainerHeight*0.08 + 'px ' + mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.70 + 'px ';
     // сетка для #exercise-screen
     document.querySelector('#exercise-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ';
+     // сетка для #timers-screen
+     document.querySelector('#timers-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.70 + 'px '+ mainContainerHeight*0.20 + 'px ';
    
 
 
@@ -212,7 +214,20 @@ function disableButtons() {
                     
                     setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
                 }
+                if (buttonText === "Таймеры") {
+                    // Фунция отключения всех кнопок на 1 секунда для исключения повторного нажатия
+                    disableButtons();
+                    mainContainerWidthPosition = mainContainerWidthPosition + 1
+                    document.querySelector('.slave-container').style.transition = "right 1s ease-in-out";
+                    containersAndScreensSizes()
+                    changeSection()
+                    document.getElementById("timers-screen").style.display = "grid";
+                    
+                    setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
+                }
             }
+
+            
 
             // если кнопки содержат класс кнопок "Подробнее" из Базы упражнений
             if (event.target.classList.contains('exercisesBase-screen-exercisesList-item-text-button')) {
@@ -243,6 +258,18 @@ function disableButtons() {
                     
                     setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
                 }
+                if (event.target.classList.contains('timers-screen-backButton') && buttonText === "Назад") {
+                    // Фунция отключения всех кнопок на 1 секунда для исключения повторного нажатия
+                    disableButtons();
+                    mainContainerWidthPosition = mainContainerWidthPosition - 1
+                    document.querySelector('.slave-container').style.transition = "right 1s ease-in-out";
+                    setTimeout(() => containersAndScreensSizes(), 1000);
+                    changeSection()
+                    setTimeout(() => document.getElementById("timers-screen").style.display = "none", 1000);
+                    
+                    setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
+                }
+
                 if (event.target.classList.contains('exercise-screen-backButton') && buttonText === "Назад") {
                     // Фунция отключения всех кнопок на 1 секунда для исключения повторного нажатия
                     disableButtons();

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/workoutComplex-screen.css">
     <link rel="stylesheet" href="css/exercisesBase-screen.css">
     <link rel="stylesheet" href="css/exercise-screen.css">
+    <link rel="stylesheet" href="css/timers-screen.css">
 </head>
 <body>
     <!-- главный контейнер сайта -->
@@ -32,10 +33,10 @@
                 </div>
                 <div id="main-screen-logo"></div>
                 <div id="main-screen-buttons">
-                    <button class="main-screen-buttons-button main-screen-buttons-button-font" onclick="navButtonForward()">Программы тренировок</button>
-                    <button class="main-screen-buttons-button main-screen-buttons-button-font" onclick="navButtonForward()">Отдельные схемы и комплексы</button>
+                    <button class="main-screen-buttons-button main-screen-buttons-button-font main-screen-buttons-button main-screen-buttons-button-disable" onclick="navButtonForward()">Программы тренировок</button>
+                    <button class="main-screen-buttons-button main-screen-buttons-button-font main-screen-buttons-button main-screen-buttons-button-disable" onclick="navButtonForward()">Отдельные схемы и комплексы</button>
                     <button class="main-screen-buttons-button main-screen-buttons-button-font" onclick="navButtonForward()">База упражнений</button>
-                    <button class="main-screen-buttons-button main-screen-buttons-button-font" onclick="navButtonForward()">Мышечные группы</button>
+                    <button class="main-screen-buttons-button main-screen-buttons-button-font" onclick="navButtonForward()">Таймеры</button>
                 </div>
             </section>
             <section id="workoutPrograms-screen" class="screen slave-screen"></section>
@@ -180,6 +181,92 @@
                         </div>
                    </div>
                 </section>
+            <section id="timers-screen" class="screen slave-screen">
+                <div class="slave-screen-header">
+                    
+                    <button class="slave-screen-header-backButton timers-screen-backButton" onclick="navButtonBack()">Назад</button>
+               
+                    <div class="slave-screen-header-title-box">
+                        <h1 class="slave-screen-header-title-main">Таймеры</h1>
+                        <div class="slave-screen-header-title-line"></div>
+                        <h1  class="slave-screen-header-title-slave">список</h1>
+                    </div>
+               </div>
+              <div id="timers-screen-buttonsBlock">
+                <div id="timers-screen-buttonsBlock-list">
+                    <div class="timers-screen-buttonsBlock-list-item">
+                        <button class="timers-screen-buttonsBlock-list-item-button">
+                            <div class="timers-screen-buttonsBlock-list-item-button-imgBox">
+                                <img class="timers-screen-buttonsBlock-list-item-button--imgBox-img" src="/img/exercises/exercise_1.png" alt="">
+                            </div>
+                            <div class="timers-screen-buttonsBlock-list-item-button-text">
+                                <div class="timers-screen-buttonsBlock-list-item-button-text-nameBox">
+                                    <h3 class="timers-screen-buttonsBlock-list-item-button-text-name">Таймер для отдыха</h3>
+                                </div>
+                                <div class="timers-screen-buttonsBlock-list-item-button-text-line"></div>
+                                <h4 class="timers-screen-buttonsBlock-list-item-button-text-about">таймер отдыха между подходами</h4>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="timers-screen-buttonsBlock-list-item">
+                        <button class="timers-screen-buttonsBlock-list-item-button">
+                            <div class="timers-screen-buttonsBlock-list-item-button-imgBox">
+                                <img class="timers-screen-buttonsBlock-list-item-button--imgBox-img" src="/img/exercises/exercise_1.png" alt="">
+                            </div>
+                            <div class="timers-screen-buttonsBlock-list-item-button-text">
+                                <div class="timers-screen-buttonsBlock-list-item-button-text-nameBox">
+                                    <h3 class="timers-screen-buttonsBlock-list-item-button-text-name">Таймер циклов</h3>
+                                </div>
+                                <div class="timers-screen-buttonsBlock-list-item-button-text-line"></div>
+                                <h4 class="timers-screen-buttonsBlock-list-item-button-text-about">подходы на время и отдых на время </h4>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="timers-screen-buttonsBlock-list-item">
+                        <button class="timers-screen-buttonsBlock-list-item-button">
+                            <div class="timers-screen-buttonsBlock-list-item-button-imgBox">
+                                <img class="timers-screen-buttonsBlock-list-item-button--imgBox-img" src="/img/exercises/exercise_1.png" alt="">
+                            </div>
+                            <div class="timers-screen-buttonsBlock-list-item-button-text">
+                                <div class="timers-screen-buttonsBlock-list-item-button-text-nameBox">
+                                    <h3 class="timers-screen-buttonsBlock-list-item-button-text-name">EMOM таймер</h3>
+                                </div>
+                                <div class="timers-screen-buttonsBlock-list-item-button-text-line"></div>
+                                <h4 class="timers-screen-buttonsBlock-list-item-button-text-about">новый подход каждые N секунд или минут</h4>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="timers-screen-buttonsBlock-list-item">
+                        <button class="timers-screen-buttonsBlock-list-item-button">
+                            <div class="timers-screen-buttonsBlock-list-item-button-imgBox">
+                                <img class="timers-screen-buttonsBlock-list-item-button--imgBox-img" src="/img/exercises/exercise_1.png" alt="">
+                            </div>
+                            <div class="timers-screen-buttonsBlock-list-item-button-text">
+                                <div class="timers-screen-buttonsBlock-list-item-button-text-nameBox">
+                                    <h3 class="timers-screen-buttonsBlock-list-item-button-text-name">Таймер для суперподхода</h3>
+                                </div>
+                                <div class="timers-screen-buttonsBlock-list-item-button-text-line"></div>
+                                <h4 class="timers-screen-buttonsBlock-list-item-button-text-about">суперподход по времени</h4>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+              </div>
+              <div id="timers-screen-resetButton">
+                <button class="timers-screen-buttonsBlock-list-item-button">
+                    <div class="timers-screen-buttonsBlock-list-item-button-imgBox">
+                        <img class="timers-screen-buttonsBlock-list-item-button--imgBox-img" src="/img/exercises/exercise_1.png" alt="">
+                    </div>
+                    <div class="timers-screen-buttonsBlock-list-item-button-text">
+                        <div class="timers-screen-buttonsBlock-list-item-button-text-nameBox">
+                            <h3 class="timers-screen-buttonsBlock-list-item-button-text-name">Сброс таймеров</h3>
+                        </div>
+                        <div class="timers-screen-buttonsBlock-list-item-button-text-line"></div>
+                        <h4 class="timers-screen-buttonsBlock-list-item-button-text-about">сбросить все таймеры и счётчики подходов</h4>
+                    </div>
+                </button>
+               </div>
+            </section>
         </div>
     </div>
     <script src="script.js"></script>
