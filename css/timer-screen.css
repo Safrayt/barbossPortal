@@ -1,0 +1,213 @@
+#timer-screen {
+    display: none;
+    overflow-y:scroll;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+
+.timer-screen-time-block {
+    font-size: var(--font-size-time);
+    font-family: var(--header-font-family);
+    font-weight: var(--header-font-weight-400);
+    font-style: var(--header-font-style);
+    
+    background-color: #f0f0f0; /* Тёмный фон */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 50px;
+    border-radius: 15px;
+    width: 90%; /* Увеличим ширину для более комфортного отображения */
+    margin: 20px auto; /* Центрирование блока */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6); /* Тень для выделения */
+    text-align: center;
+}
+
+/* Стиль для отдельных цифр (минут и секунд) */
+#minutes, #seconds {
+    font-size: var(--font-size-time);
+    font-family: var(--header-font-family);
+    font-weight: var(--header-font-weight-400);
+    font-style: var(--header-font-style);
+
+    color: #222;
+    text-align: center;
+    min-width: fit-content;
+    min-height: fit-content;
+    padding: 10px 15px;
+    background: #f0f0f0; /* Немного светлее фон для цифр */
+    border-radius: 10px;
+    border: solid 2px #646464;
+    margin: 0 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6); /* Тень для выделения */
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Эффект при запуске таймера */
+.timer-screen-time-block.running #minutes,
+.timer-screen-time-block.running #seconds {
+    background: #444; /* Темнее при старте */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8); /* Ярче тень */
+    
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+/* Добавляем анимацию "мерцания" текста */
+@keyframes blink {
+    0% { color: #2e2e2e; }
+    50% { color: #f0f0f0; }
+    100% { color: #3a3a3a; }
+}
+
+#minutes, #seconds {
+    animation: blink 1s infinite; /* Мерцание текста */
+}
+
+
+
+
+.timer-screen-reset-button-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    height: 80%;
+    width: 90%; /* Увеличим ширину для более комфортного отображения */
+    margin: 20px auto 0px; /* Центрирование блока */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6); /* Тень для выделения */
+    text-align: center;
+}
+
+.timer-screen-reset-button {
+    font-family: var(--button-font-family);
+    font-size: var(--button-font-size-007);
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    border: transparent;
+    width: 100%;
+    height: 100%;
+}
+
+.timer-screen-reset-button-block:active {
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.6); /* Тень для выделения */
+    
+}
+
+
+
+.timer-screen-start-button-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    height: 80%;
+    width: 90%; /* Увеличим ширину для более комфортного отображения */
+    margin: 20px auto 0px; /* Центрирование блока */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6); /* Тень для выделения */
+    text-align: center;
+}
+
+.timer-screen-start-button {
+    font-family: var(--button-font-family);
+    font-size: var(--button-font-size-007);
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    border: transparent;
+    width: 100%;
+    height: 100%;
+}
+
+.timer-screen-start-button-block:active {
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.6); /* Тень для выделения */
+    
+}
+
+.timer-screen-counterText-block {
+    display: flex;
+    width: 90%;
+    margin: 20px auto 0;
+    background-color: #f0f0f0;
+    
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6); /* Тень для выделения */
+    border-left: 10px solid #363636;
+    border-right: 10px solid #363636;
+}
+
+.timer-screen-counterText-block-text {
+    font-family: var(--button-font-family);
+    font-size: var(--button-font-size-007);
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    border: transparent;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.timer-screen-counter-block {
+    display: flex;
+    width: 90%;
+    margin: 20px auto 0;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 8px 8px 8px 8px; /* Сглаженные углы */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6); /* Тень для выделения */
+}
+.timer-screen-counter-minus-block {
+    width: 25%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff; /* Белый цвет текста */
+    background-color: #333532; /* Тёмный фон */
+    border-radius: 15px;
+    margin-left: 10px;
+    font-size: var(--font-size-1);
+    font-family: var(--header-font-family);
+    font-weight: var(--header-font-weight-400);
+    font-style: var(--header-font-style);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6); /* Тень для выделения */
+}
+.timer-screen-counter-number-block {
+    width: 35%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff; /* Белый цвет текста */
+    background-color: #333532; /* Тёмный фон */
+    border-radius: 15px;
+    font-size: var(--font-size-1);
+    font-family: var(--header-font-family);
+    font-weight: var(--header-font-weight-400);
+    font-style: var(--header-font-style);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6); /* Тень для выделения */
+}
+.timer-screen-counter-plus-block {
+    width: 25%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff; /* Белый цвет текста */
+    background-color: #333532; /* Тёмный фон */
+    border-radius: 15px;
+    margin-right: 10px;
+    font-size: var(--font-size-1);
+    font-family: var(--header-font-family);
+    font-weight: var(--header-font-weight-400);
+    font-style: var(--header-font-style);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6); /* Тень для выделения */
+}

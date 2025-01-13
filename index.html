@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="css/exercisesBase-screen.css">
     <link rel="stylesheet" href="css/exercise-screen.css">
     <link rel="stylesheet" href="css/timers-screen.css">
+    <link rel="stylesheet" href="css/timer-screen.css">
+
 </head>
 <body>
     <!-- главный контейнер сайта -->
@@ -195,7 +197,7 @@
               <div id="timers-screen-buttonsBlock">
                 <div id="timers-screen-buttonsBlock-list">
                     <div class="timers-screen-buttonsBlock-list-item">
-                        <button class="timers-screen-buttonsBlock-list-item-button">
+                        <button class="timers-screen-buttonsBlock-list-item-button" onclick="navButtonForward()">
                             <div class="timers-screen-buttonsBlock-list-item-button-imgBox">
                                 <img class="timers-screen-buttonsBlock-list-item-button--imgBox-img" src="/img/exercises/exercise_1.png" alt="">
                             </div>
@@ -209,7 +211,7 @@
                         </button>
                     </div>
                     <div class="timers-screen-buttonsBlock-list-item">
-                        <button class="timers-screen-buttonsBlock-list-item-button">
+                        <button class="timers-screen-buttonsBlock-list-item-button" onclick="navButtonForward()">
                             <div class="timers-screen-buttonsBlock-list-item-button-imgBox">
                                 <img class="timers-screen-buttonsBlock-list-item-button--imgBox-img" src="/img/exercises/exercise_1.png" alt="">
                             </div>
@@ -246,7 +248,7 @@
                                     <h3 class="timers-screen-buttonsBlock-list-item-button-text-name">Таймер для суперподхода</h3>
                                 </div>
                                 <div class="timers-screen-buttonsBlock-list-item-button-text-line"></div>
-                                <h4 class="timers-screen-buttonsBlock-list-item-button-text-about">суперподход по времени</h4>
+                                <h4 class="timers-screen-buttonsBlock-list-item-button-text-about">для выполнения подхода с использованием добивок</h4>
                             </div>
                         </button>
                     </div>
@@ -267,9 +269,34 @@
                 </button>
                </div>
             </section>
+                <section id="timer-screen" class="screen slave-screen">
+                    <!-- <div class="slave-screen-header">
+                        <button class="slave-screen-header-backButton timer-screen-backButton" onclick="navButtonBack()">Назад</button>
+                        <div class="slave-screen-header-title-box">
+                            <h1 class="slave-screen-header-title-main">Таймер</h1>
+                            <div class="slave-screen-header-title-line"></div>
+                            <h1  class="slave-screen-header-title-slave">подробности</h1>
+                        </div>
+                   </div>
+                   <div class="timer-screen-reset-button-block">
+                        <button class="timer-screen-reset-button">Сброс таймера</button>
+                    </div>
+                   <div class="timer-screen-time-block">
+                    <span id="minutes">00</span>:<span id="seconds">00</span>
+                   </div>
+                   <div class="timer-screen-start-button-block">
+                    <button class="timer-screen-start-button">Запуск таймера</button>
+                   </div>
+                   <div class="timer-screen-counter-block">
+                        <div class="timer-screen-counter-minus-block">-</div>
+                        <div class="timer-screen-counter-number-block">22</div>
+                        <div class="timer-screen-counter-plus-block">+</div>
+                   </div> -->
+                </section>
         </div>
     </div>
     <script src="script.js"></script>
     <script src="engine.js"></script>
+    <script src="timers.js"></script>
 </body>
 </html>

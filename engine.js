@@ -58,6 +58,8 @@ function containersAndScreensSizes() {
     document.querySelector('#exercise-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ';
      // сетка для #timers-screen
      document.querySelector('#timers-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.70 + 'px '+ mainContainerHeight*0.20 + 'px ';
+      // сетка для #timer-screen
+      document.querySelector('#timer-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.15 + 'px ' + mainContainerHeight*0.30 + 'px '+ mainContainerHeight*0.15 + 'px ' + mainContainerHeight*0.08 + 'px ' + mainContainerHeight*0.20 + 'px ';
    
 
 
@@ -143,6 +145,8 @@ function containersAndScreensSizes() {
     document.documentElement.style.setProperty('--font-size-8', (mainContainerWidth/28) + 'px');
     document.documentElement.style.setProperty('--font-size-9', (mainContainerWidth/30) + 'px');
     document.documentElement.style.setProperty('--font-size-10', (mainContainerWidth/32) + 'px');
+
+    document.documentElement.style.setProperty('--font-size-time', (mainContainerWidth/5) + 'px');
 }
 
 
@@ -241,6 +245,35 @@ function disableButtons() {
                 
                 setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
             }
+
+            // Таймеры
+            if (event.target.closest('.timers-screen-buttonsBlock-list-item-button')) {
+                const buttonText = event.target.closest('.timers-screen-buttonsBlock-list-item-button').querySelector('.timers-screen-buttonsBlock-list-item-button-text-name').innerText;
+                console.log("а3ка23а");
+                if (buttonText === "Таймер для отдыха") {                    
+                    // Фунция отключения всех кнопок на 1 секунда для исключения повторного нажатия
+                    disableButtons();
+                    mainContainerWidthPosition = mainContainerWidthPosition + 1
+                    document.querySelector('.slave-container').style.transition = "right 1s ease-in-out";
+                    containersAndScreensSizes()
+                    changeSection()
+                    document.getElementById("timer-screen").style.display = "grid";
+                    
+                    setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
+                }
+                if (buttonText === "Таймер циклов") {                    
+                    // Фунция отключения всех кнопок на 1 секунда для исключения повторного нажатия
+                    disableButtons();
+                    mainContainerWidthPosition = mainContainerWidthPosition + 1
+                    document.querySelector('.slave-container').style.transition = "right 1s ease-in-out";
+                    containersAndScreensSizes()
+                    changeSection()
+                    document.getElementById("timer-screen").style.display = "grid";
+                    
+                    setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
+                }
+            }
+
         }
 
 
@@ -282,4 +315,15 @@ function disableButtons() {
                     setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
                 }
 
+                if (event.target.classList.contains('timer-screen-backButton') && buttonText === "Назад") {
+                    // Фунция отключения всех кнопок на 1 секунда для исключения повторного нажатия
+                    disableButtons();
+                    mainContainerWidthPosition = mainContainerWidthPosition - 1
+                    document.querySelector('.slave-container').style.transition = "right 1s ease-in-out";
+                    setTimeout(() => containersAndScreensSizes(), 1000);
+                    changeSection()
+                    setTimeout(() => document.getElementById("timer-screen").style.display = "none", 1000);
+                    
+                    setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
+                }
             }
