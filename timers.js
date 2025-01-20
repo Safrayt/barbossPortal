@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Добавляем обработчик на клик
     button_timer_repsAndSets.addEventListener('click', function() {
       // Находим секцию с id "timer-screen"
-      const timerScreen = document.querySelector('#timer-screen');
+      const timerScreen = document.querySelector('#timer-screen-repsAndSets');
 
       if (timerScreen) {
         // Создаем нужный HTML
@@ -46,36 +46,46 @@ document.addEventListener("DOMContentLoaded", function() {
         `;
 
         const resetButtonHTML = `
-          <div class="timer-screen-reset-button-block">
-            <button class="timer-screen-reset-button">Сброс таймера</button>
+        <div class="timer_repsAndSets-screen-time-block">
+          <div class="timer_repsAndSets-screen-reset-button-block">
+            <button class="timer_repsAndSets-screen-reset-button">Сброс таймера</button>
           </div>
+        </div>
         `;
 
         const timeBlockHTML = `
-          <div class="timer-screen-time-block">
+        <div class="timer_repsAndSets-screen-time-block">
+          <div class="timer_repsAndSets-screen-time">
             <span id="minutes">00</span>:<span id="seconds">00</span>
           </div>
+        </div>
         `;
         
 
         const startButtonHTML = `
-          <div class="timer-screen-start-button-block">
-            <button class="timer-screen-start-button">Запуск таймера</button>
+        <div class="timer_repsAndSets-screen-time-block">
+          <div class="timer_repsAndSets-screen-start-button-block">
+            <button class="timer_repsAndSets-screen-start-button">Запуск таймера</button>
           </div>
+        </div>
         `;
 
         const counterTextBlockHTML = `
-          <div class="timer-screen-counterText-block">
-            <div class="timer-screen-counterText-block-text">Сделанно подходов</div>
+        <div class="timer_repsAndSets-screen-time-block">
+          <div class="timer_repsAndSets-screen-counterText-block">
+            <div class="timer_repsAndSets-screen-counterText-block-text">Сделанно подходов</div>
           </div>
+        </div>
         `;
 
         const counterBlockHTML = `
-          <div class="timer-screen-counter-block">
-            <div class="timer-screen-counter-minus-block" onclick="timer_repsAndSetsCounterMinus()">-</div>
-            <div class="timer-screen-counter-number-block">22</div>
-            <button class="timer-screen-counter-plus-block" onclick="timer_repsAndSetsCounterPlus()">+</button>
+        <div class="timer_repsAndSets-screen-time-block">
+          <div class="timer_repsAndSets-screen-counter-block">
+            <div class="timer_repsAndSets-screen-counter-minus-block" onclick="timer_repsAndSetsCounterMinus()">-</div>
+            <div class="timer_repsAndSets-screen-counter-number-block">22</div>
+            <button class="timer_repsAndSets-screen-counter-plus-block" onclick="timer_repsAndSetsCounterPlus()">+</button>
           </div>
+        </div>
         `;
 
         // Вставляем HTML в секцию
@@ -87,12 +97,12 @@ document.addEventListener("DOMContentLoaded", function() {
           document.getElementById('minutes').textContent = timer_repsAndSetsFormattedMinutes;
         }
         // Значение подходов в счётчике
-        document.querySelector(".timer-screen-counter-number-block").textContent = timer_repsAndSetsCounterNumber;
+        document.querySelector(".timer_repsAndSets-screen-counter-number-block").textContent = timer_repsAndSetsCounterNumber;
       }
       
       
 
-      document.querySelector('.timer-screen-start-button').addEventListener('click', function() {
+      document.querySelector('.timer_repsAndSets-screen-start-button').addEventListener('click', function() {
         if (!timer_repsAndSetRunning) {
             // Сохраняем текущее время в переменную timer_repsAndSets
             timer_repsAndSets = new Date();
@@ -114,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
     
-    document.querySelector('.timer-screen-reset-button').addEventListener('click', function() {
+    document.querySelector('.timer_repsAndSets-screen-reset-button').addEventListener('click', function() {
         // Сбрасываем таймер и останавливаем интервал
         clearInterval(timer_repsAndSetsInterval);
     
@@ -196,7 +206,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Добавляем обработчик на клик
     button_timer_circles.addEventListener('click', function() {
       // Находим секцию с id "timer-screen"
-      const timerScreen = document.querySelector('#timer-screen');
+      const timerScreen = document.querySelector('#timer-screen-circles');
 
       if (timerScreen) {
         // Создаем нужный HTML
@@ -206,20 +216,54 @@ document.addEventListener("DOMContentLoaded", function() {
             <div class="slave-screen-header-title-box">
               <h1 class="slave-screen-header-title-main">Таймер</h1>
               <div class="slave-screen-header-title-line"></div>
-              <h1 class="slave-screen-header-title-slave">Отдыха между подходами</h1>
+              <h1 class="slave-screen-header-title-slave">Циклов отдыха и подходов</h1>
             </div>
           </div>
         `;
 
-        const resetButtonHTML = `
-          <div class="timer-screen-reset-button-block">
-            <button class="timer-screen-reset-button">Сброс таймера</button>
+        const workBlockHTML = `
+          <div class="timer_circles-screen-work-block">
+            <div class="timer_circles-screen-work-text-block">
+              <div class="timer_circles-screen-work-text-block-text">Время подхода</div>
+            </div>
+          </div>
+          <div class="timer_circles-screen-work-block">
+            <div class="timer_circles-screen-work-time-block">
+              <div class="timer_circles-screen-work-time-block-minutes">00</div>
+              :
+              <div class="timer_circles-screen-work-time-block-seconds">00</div>
+            </div>
+          </div>  
+          <div class="timer_circles-screen-work-buttons">
+            <button class="timer_circles-screen-work-button timer_circles-screen-work-button-minus-30"> -30</button>
+            <button class="timer_circles-screen-work-button timer_circles-screen-work-button-minus-10"> -10</button>
+            <button class="timer_circles-screen-work-button timer_circles-screen-work-button-minus-5"> -5</button>
+            <button class="timer_circles-screen-work-button timer_circles-screen-work-button-plus-5"> +5</button>
+            <button class="timer_circles-screen-work-button timer_circles-screen-work-button-plus-10"> +10</button>
+            <button class="timer_circles-screen-work-button timer_circles-screen-work-button-plus-30"> +30</button>
           </div>
         `;
 
-        const timeBlockHTML = `
-          <div class="timer-screen-time-block">
-            <span id="minutes">00</span>:<span id="seconds">00</span>
+        const restBlockHTML = `
+          <div class="timer_circles-screen-rest-block">
+            <div class="timer_circles-screen-rest-text-block">
+              <div class="timer_circles-screen-rest-text-block-text">Время отдыха</div>
+            </div>
+          </div>
+          <div class="timer_circles-screen-rest-block">
+            <div class="timer_circles-screen-rest-time-block">
+              <div class="timer_circles-screen-rest-time-block-minutes">00</div>
+              :
+              <div class="timer_circles-screen-rest-time-block-seconds">00</div>
+            </div>
+          </div>  
+          <div class="timer_circles-screen-rest-buttons">
+            <button class="timer_circles-screen-rest-button timer_circles-screen-rest-button-minus-30"> -30 </button>
+            <button class="timer_circles-screen-rest-button timer_circles-screen-rest-button-minus-10"> -10 </button>
+            <button class="timer_circles-screen-rest-button timer_circles-screen-rest-button-minus-5"> -5 </button>
+            <button class="timer_circles-screen-rest-button timer_circles-screen-rest-button-plus-5"> +5 </button>
+            <button class="timer_circles-screen-rest-button timer_circles-screen-rest-button-plus-10"> +10 </button>
+            <button class="timer_circles-screen-rest-button timer_circles-screen-rest-button-plus-30"> +30 </button>
           </div>
         `;
 
@@ -238,8 +282,8 @@ document.addEventListener("DOMContentLoaded", function() {
         `;
 
         // Вставляем HTML в секцию
-        timerScreen.innerHTML = headerHTML + resetButtonHTML + timeBlockHTML + startButtonHTML + counterBlockHTML;
-        if (timer_repsAndSetRunning == true) {
+        timerScreen.innerHTML = headerHTML + workBlockHTML + restBlockHTML;
+        if (timer_circlesRunning == true) {
           document.getElementById('minutes').style.animation = 'none';
           document.getElementById('seconds').style.animation = 'none';
         }
@@ -281,7 +325,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // Счётчик подходов для Таймера отдыха между подходами
 function timer_repsAndSetsCounterPlus() {
   timer_repsAndSetsCounterNumber = timer_repsAndSetsCounterNumber + 1
-  document.querySelector(".timer-screen-counter-number-block").textContent = timer_repsAndSetsCounterNumber ;
+  document.querySelector(".timer_repsAndSets-screen-counter-number-block").textContent = timer_repsAndSetsCounterNumber ;
 }
 
 function timer_repsAndSetsCounterMinus() {
@@ -290,5 +334,5 @@ function timer_repsAndSetsCounterMinus() {
   else {
     timer_repsAndSetsCounterNumber = timer_repsAndSetsCounterNumber - 1
   }
-  document.querySelector(".timer-screen-counter-number-block").textContent = timer_repsAndSetsCounterNumber ;
+  document.querySelector(".timer_repsAndSets-screen-counter-number-block").textContent = timer_repsAndSetsCounterNumber ;
 }

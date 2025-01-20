@@ -59,7 +59,8 @@ function containersAndScreensSizes() {
      // сетка для #timers-screen
      document.querySelector('#timers-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.70 + 'px '+ mainContainerHeight*0.20 + 'px ';
       // сетка для #timer-screen
-      document.querySelector('#timer-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.15 + 'px ' + mainContainerHeight*0.30 + 'px '+ mainContainerHeight*0.15 + 'px ' + mainContainerHeight*0.08 + 'px ' + mainContainerHeight*0.20 + 'px ';
+      document.querySelector('#timer-screen-repsAndSets').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.16 + 'px ' + mainContainerHeight*0.23 + 'px '+ mainContainerHeight*0.16 + 'px ' + mainContainerHeight*0.08 + 'px ' + mainContainerHeight*0.20 + 'px ';
+      document.querySelector('#timer-screen-circles').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.08 + 'px ' + mainContainerHeight*0.23 + 'px ' + mainContainerHeight*0.08 + 'px '+ mainContainerHeight*0.08 + 'px ' + mainContainerHeight*0.23 + 'px '+ mainContainerHeight*0.08 + 'px ';
    
 
 
@@ -109,6 +110,16 @@ function containersAndScreensSizes() {
       document.documentElement.style.setProperty('--site-height-10', mainContainerHeight*0.1 + 'px');
       document.documentElement.style.setProperty('--site-height-5', mainContainerHeight*0.05 + 'px');
       document.documentElement.style.setProperty('--site-height-025', mainContainerHeight*0.025 + 'px');
+
+    // Размеры отступов
+    document.documentElement.style.setProperty('--margin-padding-10px', mainContainerWidth*0.030 + 'px');
+    document.documentElement.style.setProperty('--margin-padding-15px', mainContainerWidth*0.045 + 'px');
+
+    // Размеры теней
+    document.documentElement.style.setProperty('--box-shadow-025px', mainContainerWidth*0.005 + 'px');
+    document.documentElement.style.setProperty('--box-shadow-5px', mainContainerWidth*0.008 + 'px');
+    document.documentElement.style.setProperty('--box-shadow-10px', mainContainerWidth*0.030 + 'px');
+
 
     // Размеры шрифта заголовков секций
       document.documentElement.style.setProperty('--header-font-size-0025', mainContainerWidth*0.025 + 'px');
@@ -257,7 +268,7 @@ function disableButtons() {
                     document.querySelector('.slave-container').style.transition = "right 1s ease-in-out";
                     containersAndScreensSizes()
                     changeSection()
-                    document.getElementById("timer-screen").style.display = "grid";
+                    document.getElementById("timer-screen-repsAndSets").style.display = "grid";
                     
                     setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
                 }
@@ -268,7 +279,7 @@ function disableButtons() {
                     document.querySelector('.slave-container').style.transition = "right 1s ease-in-out";
                     containersAndScreensSizes()
                     changeSection()
-                    document.getElementById("timer-screen").style.display = "grid";
+                    document.getElementById("timer-screen-circles").style.display = "grid";
                     
                     setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
                 }
@@ -322,7 +333,8 @@ function disableButtons() {
                     document.querySelector('.slave-container').style.transition = "right 1s ease-in-out";
                     setTimeout(() => containersAndScreensSizes(), 1000);
                     changeSection()
-                    setTimeout(() => document.getElementById("timer-screen").style.display = "none", 1000);
+                    setTimeout(() => document.getElementById("timer-screen-repsAndSets").style.display = "none", 1000);
+                    setTimeout(() => document.getElementById("timer-screen-circles").style.display = "none", 1000);
                     
                     setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
                 }

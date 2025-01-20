@@ -46,6 +46,14 @@
     --site-height-5: 0;
     --site-height-025: 0;
 
+    /* размеры отступов */
+    --margin-padding-10px: 0;
+    --margin-padding-15px: 0;
+
+    /* размеры теней */
+    --box-shadow-5px: 0;
+    --box-shadow-10px: 0;
+
 
     /* переменные для заголовков секций */
     --header-font-size-0025: 0;
