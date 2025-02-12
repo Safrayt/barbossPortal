@@ -10,7 +10,19 @@
     scrollbar-width: none;
     scroll-behavior: smooth;
 }
+#timer-screen-emom {
+    display: none;
+    overflow-y:scroll;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
 
+#timer-screen-sup {
+    display: none;
+    overflow-y:scroll;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
 
 
 
@@ -470,3 +482,506 @@
 .timer_circles-screen-rest-button:active {
     box-shadow: 0 0px var(--box-shadow-025px) rgba(0, 0, 0, 0.6); 
 }
+
+
+.timer_circles-screen-time-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer_circles-screen-start-button-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 15px 15px 0;
+    border-left: 10px solid #06c43f;
+    height: 80%;
+    width: 90%; /* Увеличим ширину для более комфортного отображения */
+    box-shadow: 0 0px var(--box-shadow-10px) rgba(0, 0, 0, 0.6); 
+    text-align: center;
+}
+
+
+.timer_circles-screen-start-button {
+    font-family: var(--button-font-family);
+    font-size: var(--button-font-size-007);
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    border: transparent;
+    width: 100%;
+    height: 100%;
+}
+
+.timer_circles-screen-start-button-block:active {
+    box-shadow: 0 0px var(--box-shadow-5px) rgba(0, 0, 0, 0.6); 
+    
+}
+
+
+.timer_circles-screen-counterText-block {
+    display: flex;
+    width: 90%;
+    background-color: #f0f0f0;
+    
+    box-shadow: 0 0px var(--box-shadow-10px) rgba(0, 0, 0, 0.6); 
+    border-left: 10px solid #363636;
+    border-right: 10px solid #363636;
+}
+
+.timer_circles-screen-counterText-block-text {
+    font-family: var(--button-font-family);
+    font-size: var(--button-font-size-007);
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    border: transparent;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.timer_circles-screen-counter-block {
+    width: var(--site-width-90);
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff; /* Белый цвет текста */
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    box-shadow: 0 0px var(--box-shadow-10px) rgba(0, 0, 0, 0.6); 
+}
+.timer_circles-screen-counter-number-block {
+    width: 35%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff; /* Белый цвет текста */
+    background-color: #333532; /* Тёмный фон */
+    border-radius: 15px;
+    font-size: var(--font-size-1);
+    font-family: var(--header-font-family);
+    font-weight: var(--header-font-weight-400);
+    font-style: var(--header-font-style);
+    box-shadow: 0 0px var(--box-shadow-10px) rgba(0, 0, 0, 0.6); 
+}
+
+
+
+
+/* Таймер EMOM */
+
+.timer_emom-screen-work-block {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+.timer_emom-screen-work-text-block {
+    display: flex;
+    width: var(--site-width-90);
+    background-color: #f0f0f0;
+    
+    box-shadow: 0 0px var(--box-shadow-10px) rgba(0, 0, 0, 0.6); 
+    border-left: 10px solid #363636;
+    border-right: 10px solid #363636;
+}
+.timer_emom-screen-work-text-block-text {
+    font-family: var(--button-font-family);
+    font-size: var(--button-font-size-007);
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    border: transparent;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.timer_emom-screen-work-time-block {
+    font-size: var(--font-size-time);
+    font-family: var(--header-font-family);
+    font-weight: var(--header-font-weight-400);
+    font-style: var(--header-font-style);
+    
+    background-color: #f0f0f0; /* Тёмный фон */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--margin-padding-10px) 0 var(--margin-padding-10px) 0;
+    border-radius: 15px;
+    width: var(--site-width-90); /* Увеличим ширину для более комфортного отображения */
+    box-shadow: 0 0px var(--box-shadow-10px) rgba(0, 0, 0, 0.6); 
+    text-align: center;
+}
+.timer_emom-screen-work-time-block-minutes, .timer_emom-screen-work-time-block-seconds {
+    font-size: var(--font-size-time);
+    font-family: var(--header-font-family);
+    font-weight: var(--header-font-weight-400);
+    font-style: var(--header-font-style);
+
+    color: #222;
+    text-align: center;
+    padding: var(--margin-padding-10px) var(--margin-padding-15px);
+    background: #f0f0f0; /* Немного светлее фон для цифр */
+    border-radius: 10px;
+    border: solid 2px #646464;
+    margin: 0 10px;
+    box-shadow: 0 0px var(--box-shadow-10px) rgba(0, 0, 0, 0.6); 
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Эффект при запуске таймера */
+.timer_emom-screen-work-time-block.running .timer_emom-screen-work-time-block-minutes,
+.timer_emom-screen-work-time-block.running .timer_emom-screen-work-time-block-seconds {
+    background: #444; /* Темнее при старте */
+    box-shadow: 0 0px var(--box-shadow-10px) rgba(0, 0, 0, 0.6); 
+    
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+/* Добавляем анимацию "мерцания" текста */
+@keyframes blink {
+    0% { color: #2e2e2e; }
+    50% { color: #f0f0f0; }
+    100% { color: #3a3a3a; }
+}
+
+.timer_emom-screen-work-time-block-minutes, .timer_emom-screen-work-time-block-seconds {
+    animation: blink 1s infinite; /* Мерцание текста */
+}
+
+
+
+
+
+.timer_emom-screen-work-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center
+}
+.timer_emom-screen-work-button {
+     width: var(--site-width-10);
+    height: 90%;
+    border: none;
+    border-radius: 8px; /* Сглаженные углы */
+    box-shadow: 0 0px var(--box-shadow-5px) rgba(0, 0, 0, 0.68); 
+
+    font-size: var(--button-font-size-004);
+    font-family: var(--header-font-family);
+    font-weight: var(--header-font-weight-400);
+    font-style: var(--header-font-style);
+}
+.timer_emom-screen-work-button-minus-30 {
+}
+.timer_emom-screen-work-button-minus-10 {
+}
+.timer_emom-screen-work-button-minus-5 {
+}
+.timer_emom-screen-work-button-plus-5 {
+}
+.timer_emom-screen-work-button-plus-10 {
+}
+.timer_emom-screen-work-button-plus-30 {
+}
+
+
+.timer_emom-screen-time-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.timer_emom-screen-start-button-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 15px 15px 0;
+    border-left: 10px solid #06c43f;
+    height: 80%;
+    width: 90%; /* Увеличим ширину для более комфортного отображения */
+    box-shadow: 0 0px var(--box-shadow-10px) rgba(0, 0, 0, 0.6); 
+    text-align: center;
+}
+.timer_emom-screen-start-button {
+    font-family: var(--button-font-family);
+    font-size: var(--button-font-size-007);
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    border: transparent;
+    width: 100%;
+    height: 100%;
+}
+
+.timer_emom-screen-start-button-block:active {
+    box-shadow: 0 0px var(--box-shadow-5px) rgba(0, 0, 0, 0.6); 
+    
+}
+
+
+
+.timer_emom-screen-counter-block {
+    width: var(--site-width-90);
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff; /* Белый цвет текста */
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    box-shadow: 0 0px var(--box-shadow-10px) rgba(0, 0, 0, 0.6); 
+}
+.timer_emom-screen-counter-number-block {
+    width: 35%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff; /* Белый цвет текста */
+    background-color: #333532; /* Тёмный фон */
+    border-radius: 15px;
+    font-size: var(--font-size-1);
+    font-family: var(--header-font-family);
+    font-weight: var(--header-font-weight-400);
+    font-style: var(--header-font-style);
+    box-shadow: 0 0px var(--box-shadow-10px) rgba(0, 0, 0, 0.6); 
+}
+
+
+.timer_emom-screen-counterText-block {
+    display: flex;
+    width: 90%;
+    background-color: #f0f0f0;
+    
+    box-shadow: 0 0px var(--box-shadow-10px) rgba(0, 0, 0, 0.6); 
+    border-left: 10px solid #363636;
+    border-right: 10px solid #363636;
+}
+.timer_emom-screen-counterText-block-text {
+    font-family: var(--button-font-family);
+    font-size: var(--button-font-size-007);
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    border: transparent;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+.timer_sup-screen-work-block {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+.timer_sup-screen-work-text-block {
+    display: flex;
+    width: var(--site-width-90);
+    background-color: #f0f0f0;
+    
+    box-shadow: 0 0px var(--box-shadow-10px) rgba(0, 0, 0, 0.6); 
+    border-left: 10px solid #363636;
+    border-right: 10px solid #363636;
+}
+.timer_sup-screen-work-text-block-text {
+    font-family: var(--button-font-family);
+    font-size: var(--button-font-size-007);
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    border: transparent;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.timer_sup-screen-work-time-block {
+    font-size: var(--font-size-time);
+    font-family: var(--header-font-family);
+    font-weight: var(--header-font-weight-400);
+    font-style: var(--header-font-style);
+    
+    background-color: #f0f0f0; /* Тёмный фон */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--margin-padding-10px) 0 var(--margin-padding-10px) 0;
+    border-radius: 15px;
+    width: var(--site-width-90); /* Увеличим ширину для более комфортного отображения */
+    box-shadow: 0 0px var(--box-shadow-10px) rgba(0, 0, 0, 0.6); 
+    text-align: center;
+}
+.timer_sup-screen-work-time-block-minutes, .timer_sup-screen-work-time-block-seconds {
+    font-size: var(--font-size-time);
+    font-family: var(--header-font-family);
+    font-weight: var(--header-font-weight-400);
+    font-style: var(--header-font-style);
+
+    color: #222;
+    text-align: center;
+    padding: var(--margin-padding-10px) var(--margin-padding-15px);
+    background: #f0f0f0; /* Немного светлее фон для цифр */
+    border-radius: 10px;
+    border: solid 2px #646464;
+    margin: 0 10px;
+    box-shadow: 0 0px var(--box-shadow-10px) rgba(0, 0, 0, 0.6); 
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Эффект при запуске таймера */
+.timer_sup-screen-work-time-block.running .timer_sup-screen-work-time-block-minutes,
+.timer_sup-screen-work-time-block.running .timer_sup-screen-work-time-block-seconds {
+    background: #444; /* Темнее при старте */
+    box-shadow: 0 0px var(--box-shadow-10px) rgba(0, 0, 0, 0.6); 
+    
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+/* Добавляем анимацию "мерцания" текста */
+@keyframes blink {
+    0% { color: #2e2e2e; }
+    50% { color: #f0f0f0; }
+    100% { color: #3a3a3a; }
+}
+
+.timer_sup-screen-work-time-block-minutes, .timer_sup-screen-work-time-block-seconds {
+    animation: blink 1s infinite; /* Мерцание текста */
+}
+
+.timer_sup-screen-work-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center
+}
+.timer_sup-screen-work-button {
+    width: var(--site-width-10);
+    height: 90%;
+    border: none;
+    border-radius: 8px; /* Сглаженные углы */
+    box-shadow: 0 0px var(--box-shadow-5px) rgba(0, 0, 0, 0.68); 
+
+    font-size: var(--button-font-size-004);
+    font-family: var(--header-font-family);
+    font-weight: var(--header-font-weight-400);
+    font-style: var(--header-font-style);
+}
+.timer_sup-screen-work-button-minus-30 {
+}
+.timer_sup-screen-work-button-minus-10 {
+}
+.timer_sup-screen-work-button-minus-5 {
+}
+.timer_sup-screen-work-button-plus-5 {
+}
+.timer_sup-screen-work-button-plus-10 {
+}
+.timer_sup-screen-work-button-plus-30 {
+}
+
+
+.timer_sup-screen-time-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.timer_sup-screen-start-button-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 15px 15px 0;
+    border-left: 10px solid #06c43f;
+    height: 80%;
+    width: 90%; /* Увеличим ширину для более комфортного отображения */
+    box-shadow: 0 0px var(--box-shadow-10px) rgba(0, 0, 0, 0.6); 
+    text-align: center;
+}
+.timer_sup-screen-start-button {
+    font-family: var(--button-font-family);
+    font-size: var(--button-font-size-007);
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    border: transparent;
+    width: 100%;
+    height: 100%;
+}
+
+.timer_sup-screen-start-button-newRound {
+    font-family: var(--button-font-family);
+    font-size: var(--button-font-size-007);
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    border: transparent;
+    width: 100%;
+    height: 100%;
+}
+
+
+.timer_sup-screen-counterText-block {
+    display: flex;
+    width: 90%;
+    background-color: #f0f0f0;
+    
+    box-shadow: 0 0px var(--box-shadow-10px) rgba(0, 0, 0, 0.6); 
+    border-left: 10px solid #363636;
+    border-right: 10px solid #363636;
+}
+.timer_sup-screen-counterText-block-text {
+    font-family: var(--button-font-family);
+    font-size: var(--button-font-size-007);
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    border: transparent;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.timer_sup-screen-counter-block {
+    width: var(--site-width-90);
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff; /* Белый цвет текста */
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    box-shadow: 0 0px var(--box-shadow-10px) rgba(0, 0, 0, 0.6); 
+}
+.timer_sup-screen-counter-number-block {
+    width: 35%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff; /* Белый цвет текста */
+    background-color: #333532; /* Тёмный фон */
+    border-radius: 15px;
+    font-size: var(--font-size-1);
+    font-family: var(--header-font-family);
+    font-weight: var(--header-font-weight-400);
+    font-style: var(--header-font-style);
+    box-shadow: 0 0px var(--box-shadow-10px) rgba(0, 0, 0, 0.6); 
+}
+

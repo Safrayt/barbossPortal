@@ -11,7 +11,6 @@
 // переменная сдвига позиции рабоского контейнера в пикселях
     let slaveContainerWidthRight = 0
 
-
 function containersAndScreensSizes() {
 // размеры главного контейнера 
     // высота
@@ -58,10 +57,20 @@ function containersAndScreensSizes() {
     document.querySelector('#exercise-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ';
      // сетка для #timers-screen
      document.querySelector('#timers-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.70 + 'px '+ mainContainerHeight*0.20 + 'px ';
-      // сетка для #timer-screen
-      document.querySelector('#timer-screen-repsAndSets').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.16 + 'px ' + mainContainerHeight*0.23 + 'px '+ mainContainerHeight*0.16 + 'px ' + mainContainerHeight*0.08 + 'px ' + mainContainerHeight*0.20 + 'px ';
-      document.querySelector('#timer-screen-circles').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.08 + 'px ' + mainContainerHeight*0.23 + 'px ' + mainContainerHeight*0.08 + 'px '+ mainContainerHeight*0.08 + 'px ' + mainContainerHeight*0.23 + 'px '+ mainContainerHeight*0.08 + 'px ';
-   
+     // сетка для #timer-screen
+     document.querySelector('#timer-screen-repsAndSets').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.16 + 'px ' + mainContainerHeight*0.23 + 'px '+ mainContainerHeight*0.16 + 'px ' + mainContainerHeight*0.08 + 'px ' + mainContainerHeight*0.20 + 'px ';
+        // сетка для экрана таёмера циклов, если таймер не запущени и таймер запущен
+        if (timer_circlesRunning === false) {
+        document.querySelector('#timer-screen-circles').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.08 + 'px ' + mainContainerHeight*0.23 + 'px ' + mainContainerHeight*0.08 + 'px '+ mainContainerHeight*0.08 + 'px ' + mainContainerHeight*0.23 + 'px '+ mainContainerHeight*0.08 + 'px ';
+        } else {
+            document.querySelector('#timer-screen-circles').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.08 + 'px ' + mainContainerHeight*0.23 + 'px ' + mainContainerHeight*0.08 + 'px '+ mainContainerHeight*0.23 + 'px ';
+        }
+     // сетка для #timer-screen   
+     document.querySelector('#timer-screen-emom').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.08 + 'px ' + mainContainerHeight*0.23 + 'px '+ mainContainerHeight*0.08 + 'px ' + mainContainerHeight*0.20 + 'px ';
+    // сетка для #timer-screen   
+    document.querySelector('#timer-screen-sup').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.08 + 'px ' + mainContainerHeight*0.23 + 'px '+ mainContainerHeight*0.08 + 'px ' + mainContainerHeight*0.20 + 'px ';
+
+      
 
 
 // Изменение перменных в css
@@ -283,6 +292,28 @@ function disableButtons() {
                     
                     setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
                 }
+                if (buttonText === "EMOM таймер") {                    
+                    // Фунция отключения всех кнопок на 1 секунда для исключения повторного нажатия
+                    disableButtons();
+                    mainContainerWidthPosition = mainContainerWidthPosition + 1
+                    document.querySelector('.slave-container').style.transition = "right 1s ease-in-out";
+                    containersAndScreensSizes()
+                    changeSection()
+                    document.getElementById("timer-screen-emom").style.display = "grid";
+                    
+                    setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
+                }
+                if (buttonText === "Таймер для суперподхода") {                    
+                    // Фунция отключения всех кнопок на 1 секунда для исключения повторного нажатия
+                    disableButtons();
+                    mainContainerWidthPosition = mainContainerWidthPosition + 1
+                    document.querySelector('.slave-container').style.transition = "right 1s ease-in-out";
+                    containersAndScreensSizes()
+                    changeSection()
+                    document.getElementById("timer-screen-sup").style.display = "grid";
+                    
+                    setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
+                }
             }
 
         }
@@ -335,6 +366,8 @@ function disableButtons() {
                     changeSection()
                     setTimeout(() => document.getElementById("timer-screen-repsAndSets").style.display = "none", 1000);
                     setTimeout(() => document.getElementById("timer-screen-circles").style.display = "none", 1000);
+                    setTimeout(() => document.getElementById("timer-screen-emom").style.display = "none", 1000);
+                    setTimeout(() => document.getElementById("timer-screen-sup").style.display = "none", 1000);
                     
                     setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
                 }
