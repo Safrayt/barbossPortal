@@ -1,3 +1,28 @@
+
+// Чтобы экран устройства не гас во время работы таймера
+let wakeLock = null;
+
+// Функция для запроса Wake Lock
+async function requestWakeLock() {
+    try {
+        wakeLock = await navigator.wakeLock.request('screen');
+        console.log('Wake Lock активирован');
+    } catch (err) {
+        console.error('Ошибка при запросе Wake Lock:', err);
+    }
+}
+
+// Функция для освобождения Wake Lock
+function releaseWakeLock() {
+    if (wakeLock) {
+        wakeLock.release().then(() => {
+            wakeLock = null;
+            console.log('Wake Lock освобожден');
+        });
+    }
+}
+
+
 // Таймеры
   // Вводим переменные таймеров 
     // Таймер подходов
@@ -152,6 +177,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
       document.querySelector('.timer_repsAndSets-screen-start-button').addEventListener('click', function() {
         if (!timer_repsAndSetRunning) {
+            requestWakeLock();
             // Сохраняем текущее время в переменную timer_repsAndSets
             timer_repsAndSets = new Date();
     
@@ -173,6 +199,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     
     document.querySelector('.timer_repsAndSets-screen-reset-button').addEventListener('click', function() {
+        releaseWakeLock();
         // Сбрасываем таймер и останавливаем интервал
         clearInterval(timer_repsAndSetsInterval);
     
@@ -582,6 +609,7 @@ document.addEventListener("DOMContentLoaded", function() {
       const startButton = document.querySelector('.timer_circles-screen-start-button');
       // Добавляем обработчик события на нажатие кнопки
       startButton.addEventListener('click', function() {
+        requestWakeLock();
         const headerHTML = `
           <div class="slave-screen-header">
             <button class="slave-screen-header-backButton timer-screen-backButton" onclick="navButtonBack()">Назад</button>
@@ -768,6 +796,7 @@ function startRestPhase() {
     }, 1000);
 }
 if (intervalIdCircles !== null) {
+  releaseWakeLock();
   clearInterval(intervalIdCircles); // Останавливаем текущий таймер, если он уже запущен
 }
 startTimer();
@@ -937,6 +966,7 @@ startTimer();
 
       // Кнопка старта запуска
       const startButton = document.querySelector('.timer_emom-screen-start-button');
+      requestWakeLock();
       // Добавляем обработчик события на нажатие кнопки
       startButton.addEventListener('click', function() {
         const headerHTML = `
@@ -1019,7 +1049,7 @@ startTimer();
           const minutes = parseInt(minutesElement.textContent, 10);
           const seconds = parseInt(secondsElement.textContent, 10);
 
-          if (minutes === 0 && (seconds === 3 || seconds === 2)) {
+          if (minutes === 0 && (seconds === 4 ||seconds === 3 || seconds === 2)) {
             playAlertSoundPrepare();
           }
           if (minutes === 0 && (seconds === 1)) {
@@ -1100,6 +1130,7 @@ function startWorkPhase() {
     }, 1000);
 }
 if (intervalIdEmom !== null) {
+  releaseWakeLock();
   clearInterval(intervalIdEmom); // Останавливаем текущий таймер, если он уже запущен
 }
 startTimer();
@@ -1267,6 +1298,7 @@ workButtonMinus5.addEventListener('click', function() {
     const startButton = document.querySelector('.timer_sup-screen-start-button');
     // Добавляем обработчик события на нажатие кнопки
     startButton.addEventListener('click', function() {
+      requestWakeLock();
       const headerHTML = `
         <div class="slave-screen-header">
           <button class="slave-screen-header-backButton timer-screen-backButton" onclick="navButtonBack()">Назад</button>
@@ -1395,10 +1427,12 @@ function startTimer() {
 
   // Устанавливаем начальное значение "Подготовка"
   document.querySelector('.timer_sup-screen-work-text-block-text').textContent = "Подготовка";
+  let minutes = 0;
   let seconds = 5;
 
   // Запускаем обратный отсчёт от 5 до 0
   intervalIdSup = setInterval(() => {
+    document.querySelector('.timer_sup-screen-work-time-block-minutes').textContent = minutes.toString().padStart(2, '0');
     document.querySelector('.timer_sup-screen-work-time-block-seconds').textContent = seconds.toString().padStart(2, '0');
       seconds--;
 
@@ -1454,6 +1488,7 @@ function startWorkPhase() {
 }
 if (intervalIdSup !== null) {
 clearInterval(intervalIdSup); // Останавливаем текущий таймер, если он уже запущен
+releaseWakeLock();
 }
 
 startTimer();
@@ -1477,6 +1512,7 @@ startTimer();
   if (button_timers_reset) {
     // Добавляем обработчик на клик
     button_timers_reset.addEventListener('click', function() {
+      releaseWakeLock();
     // Переменные таймера отдыха между подходами
       timer_repsAndSets = null;
       timer_repsAndSetRunning = false;  // Состояние таймера (запущен или нет)
