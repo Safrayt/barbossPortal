@@ -966,9 +966,9 @@ startTimer();
 
       // Кнопка старта запуска
       const startButton = document.querySelector('.timer_emom-screen-start-button');
-      requestWakeLock();
       // Добавляем обработчик события на нажатие кнопки
       startButton.addEventListener('click', function() {
+        requestWakeLock();
         const headerHTML = `
           <div class="slave-screen-header">
             <button class="slave-screen-header-backButton timer-screen-backButton" onclick="navButtonBack()">Назад</button>
