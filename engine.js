@@ -1,20 +1,3 @@
-// Предзагрузка ресурсов
-const preloadResources = [
-    'aud/timer/pik.mp3',
-    'aud/timer/piik.mp3',
-    'images/logo.png',
-    'styles/main.css',
-    'scripts/main.js'
-];
-
-preloadResources.forEach(resource => {
-    const link = document.createElement('link');
-    link.rel = 'preload';
-    link.href = resource;
-    link.as = resource.endsWith('.mp3') ? 'audio' : resource.split('.').pop(); // Указываем тип ресурса
-    document.head.appendChild(link);
-});
-
 
 
 // Переменные для стилей
