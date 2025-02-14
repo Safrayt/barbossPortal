@@ -312,8 +312,8 @@ document.addEventListener("DOMContentLoaded", function() {
           <div class="timer_circles-screen-work-buttons">
             <button class="timer_circles-screen-work-button timer_circles-screen-work-button-minus-30"> -30</button>
             <button class="timer_circles-screen-work-button timer_circles-screen-work-button-minus-10"> -10</button>
-            <button class="timer_circles-screen-work-button timer_circles-screen-work-button-minus-5"> -5</button>
-            <button class="timer_circles-screen-work-button timer_circles-screen-work-button-plus-5"> +5</button>
+            <button class="timer_circles-screen-work-button timer_circles-screen-work-button-minus-1"> -1</button>
+            <button class="timer_circles-screen-work-button timer_circles-screen-work-button-plus-1"> +1</button>
             <button class="timer_circles-screen-work-button timer_circles-screen-work-button-plus-10"> +10</button>
             <button class="timer_circles-screen-work-button timer_circles-screen-work-button-plus-30"> +30</button>
           </div>
@@ -327,16 +327,16 @@ document.addEventListener("DOMContentLoaded", function() {
           </div>
           <div class="timer_circles-screen-rest-block">
             <div class="timer_circles-screen-rest-time-block">
-              <div class="timer_circles-screen-rest-time-block-minutes">01</div>
+              <div class="timer_circles-screen-rest-time-block-minutes">${timer_circlesRestFormattedMinutes}</div>
               :
-              <div class="timer_circles-screen-rest-time-block-seconds">00</div>
+              <div class="timer_circles-screen-rest-time-block-seconds">${timer_circlesRestFormattedSeconds}</div>
             </div>
           </div>  
           <div class="timer_circles-screen-rest-buttons">
             <button class="timer_circles-screen-rest-button timer_circles-screen-rest-button-minus-30"> -30 </button>
             <button class="timer_circles-screen-rest-button timer_circles-screen-rest-button-minus-10"> -10 </button>
-            <button class="timer_circles-screen-rest-button timer_circles-screen-rest-button-minus-5"> -5 </button>
-            <button class="timer_circles-screen-rest-button timer_circles-screen-rest-button-plus-5"> +5 </button>
+            <button class="timer_circles-screen-rest-button timer_circles-screen-rest-button-minus-1"> -1 </button>
+            <button class="timer_circles-screen-rest-button timer_circles-screen-rest-button-plus-1"> +1 </button>
             <button class="timer_circles-screen-rest-button timer_circles-screen-rest-button-plus-10"> +10 </button>
             <button class="timer_circles-screen-rest-button timer_circles-screen-rest-button-plus-30"> +30 </button>
           </div>
@@ -412,30 +412,30 @@ document.addEventListener("DOMContentLoaded", function() {
               }
             });
 
-            // Минус 5 секунд
-          const workButtonMinus5 = document.querySelector('.timer_circles-screen-work-button-minus-5');
+            // Минус 1 секунда
+          const workButtonMinus5 = document.querySelector('.timer_circles-screen-work-button-minus-1');
           workButtonMinus5.addEventListener('click', function() {
-            if (timer_circlesWorkSeconds > 4 ) {
-              timer_circlesWorkSeconds = timer_circlesWorkSeconds - 5
+            if (timer_circlesWorkSeconds >= 1 ) {
+              timer_circlesWorkSeconds = timer_circlesWorkSeconds - 1
               FormattedCirclesWorkTime()
             }
-            else if (timer_circlesWorkMinutes > 0 && timer_circlesWorkSeconds <= 4 ) {
+            else if (timer_circlesWorkMinutes > 0 && timer_circlesWorkSeconds == 0 ) {
               timer_circlesWorkMinutes  = timer_circlesWorkMinutes - 1
-              timer_circlesWorkSeconds = timer_circlesWorkSeconds - 5 + 60
+              timer_circlesWorkSeconds = timer_circlesWorkSeconds - 1 + 60
               FormattedCirclesWorkTime()
             }
           });
 
-             // Плюс 5 секунд
-             const workButtonPlus5 = document.querySelector('.timer_circles-screen-work-button-plus-5');
+             // Плюс 1 секунда
+             const workButtonPlus5 = document.querySelector('.timer_circles-screen-work-button-plus-1');
              workButtonPlus5.addEventListener('click', function() {
-               if (timer_circlesWorkSeconds < 54 ) {
-                 timer_circlesWorkSeconds = timer_circlesWorkSeconds + 5
+               if (timer_circlesWorkSeconds < 59 ) {
+                 timer_circlesWorkSeconds = timer_circlesWorkSeconds + 1
                  FormattedCirclesWorkTime()
                }
-               else if (timer_circlesWorkSeconds > 54 ) {
+               else if (timer_circlesWorkSeconds == 59 ) {
                  timer_circlesWorkMinutes = timer_circlesWorkMinutes + 1
-                 timer_circlesWorkSeconds = timer_circlesWorkSeconds + 5 - 60
+                 timer_circlesWorkSeconds = timer_circlesWorkSeconds + 1 - 60
                  FormattedCirclesWorkTime()
                }
              });
@@ -498,30 +498,30 @@ document.addEventListener("DOMContentLoaded", function() {
               }
             });
 
-            // Минус 5 секунд
-          const restButtonMinus5 = document.querySelector('.timer_circles-screen-rest-button-minus-5');
+            // Минус 1 секунда
+          const restButtonMinus5 = document.querySelector('.timer_circles-screen-rest-button-minus-1');
           restButtonMinus5.addEventListener('click', function() {
-            if (timer_circlesRestSeconds > 4 ) {
-              timer_circlesRestSeconds = timer_circlesRestSeconds - 5
+            if (timer_circlesRestSeconds >= 1 ) {
+              timer_circlesRestSeconds = timer_circlesRestSeconds - 1
               FormattedCirclesRestTime()
             }
-            else if (timer_circlesRestMinutes > 0 && timer_circlesRestSeconds <= 4 ) {
+            else if (timer_circlesRestMinutes > 0 && timer_circlesRestSeconds == 0 ) {
               timer_circlesRestMinutes  = timer_circlesRestMinutes - 1
-              timer_circlesRestSeconds = timer_circlesRestSeconds - 5 + 60
+              timer_circlesRestSeconds = timer_circlesRestSeconds - 1 + 60
               FormattedCirclesRestTime()
             }
           });
 
-             // Плюс 5 секунд
-             const restButtonPlus5 = document.querySelector('.timer_circles-screen-rest-button-plus-5');
+             // Плюс 1 секунда
+             const restButtonPlus5 = document.querySelector('.timer_circles-screen-rest-button-plus-1');
              restButtonPlus5.addEventListener('click', function() {
-               if (timer_circlesRestSeconds < 54 ) {
-                 timer_circlesRestSeconds = timer_circlesRestSeconds + 5
+               if (timer_circlesRestSeconds < 59 ) {
+                 timer_circlesRestSeconds = timer_circlesRestSeconds + 1
                  FormattedCirclesRestTime()
                }
-               else if (timer_circlesRestSeconds > 54 ) {
+               else if (timer_circlesRestSeconds == 59 ) {
                  timer_circlesRestMinutes = timer_circlesRestMinutes + 1
-                 timer_circlesRestSeconds = timer_circlesRestSeconds + 5 - 60
+                 timer_circlesRestSeconds = timer_circlesRestSeconds + 1 - 60
                  FormattedCirclesRestTime()
                }
              });
@@ -847,8 +847,8 @@ startTimer();
           <div class="timer_emom-screen-work-buttons">
             <button class="timer_emom-screen-work-button timer_emom-screen-work-button-minus-30"> -30</button>
             <button class="timer_emom-screen-work-button timer_emom-screen-work-button-minus-10"> -10</button>
-            <button class="timer_emom-screen-work-button timer_emom-screen-work-button-minus-5"> -5</button>
-            <button class="timer_emom-screen-work-button timer_emom-screen-work-button-plus-5"> +5</button>
+            <button class="timer_emom-screen-work-button timer_emom-screen-work-button-minus-1"> -1</button>
+            <button class="timer_emom-screen-work-button timer_emom-screen-work-button-plus-1"> +1</button>
             <button class="timer_emom-screen-work-button timer_emom-screen-work-button-plus-10"> +10</button>
             <button class="timer_emom-screen-work-button timer_emom-screen-work-button-plus-30"> +30</button>
           </div>
@@ -903,30 +903,30 @@ startTimer();
       }
     });
 
-    // Минус 5 секунд
-  const workButtonMinus5 = document.querySelector('.timer_emom-screen-work-button-minus-5');
+    // Минус 1 секунда
+  const workButtonMinus5 = document.querySelector('.timer_emom-screen-work-button-minus-1');
   workButtonMinus5.addEventListener('click', function() {
-    if (timer_emomWorkSeconds > 4 ) {
-      timer_emomWorkSeconds = timer_emomWorkSeconds - 5
+    if (timer_emomWorkSeconds >= 1 ) {
+      timer_emomWorkSeconds = timer_emomWorkSeconds - 1
       FormattedEmomWorkTime()
     }
-    else if (timer_emomWorkMinutes > 0 && timer_emomWorkSeconds <= 4 ) {
+    else if (timer_emomWorkMinutes > 0 && timer_emomWorkSeconds == 0 ) {
       timer_emomWorkMinutes  = timer_emomWorkMinutes - 1
-      timer_emomWorkSeconds = timer_emomWorkSeconds - 5 + 60
+      timer_emomWorkSeconds = timer_emomWorkSeconds - 1 + 60
       FormattedEmomWorkTime()
     }
   });
 
-     // Плюс 5 секунд
-     const workButtonPlus5 = document.querySelector('.timer_emom-screen-work-button-plus-5');
+     // Плюс 1 секунда
+     const workButtonPlus5 = document.querySelector('.timer_emom-screen-work-button-plus-1');
      workButtonPlus5.addEventListener('click', function() {
-       if (timer_emomWorkSeconds < 54 ) {
-         timer_emomWorkSeconds = timer_emomWorkSeconds + 5
+       if (timer_emomWorkSeconds < 59 ) {
+         timer_emomWorkSeconds = timer_emomWorkSeconds + 1
          FormattedEmomWorkTime()
        }
-       else if (timer_emomWorkSeconds > 54 ) {
+       else if (timer_emomWorkSeconds == 59 ) {
          timer_emomWorkMinutes = timer_emomWorkMinutes + 1
-         timer_emomWorkSeconds = timer_emomWorkSeconds + 5 - 60
+         timer_emomWorkSeconds = timer_emomWorkSeconds + 1 - 60
          FormattedEmomWorkTime()
        }
      });
@@ -1169,16 +1169,16 @@ if (button_timer_sup) {
         </div>
         <div class="timer_sup-screen-work-block">
           <div class="timer_sup-screen-work-time-block">
-            <div class="timer_sup-screen-work-time-block-minutes">01</div>
+            <div class="timer_sup-screen-work-time-block-minutes">${timer_supWorkFormattedMinutes}</div>
             :
-            <div class="timer_sup-screen-work-time-block-seconds">30</div>
+            <div class="timer_sup-screen-work-time-block-seconds">${timer_supWorkFormattedSeconds}</div>
           </div>
         </div>  
         <div class="timer_sup-screen-work-buttons">
           <button class="timer_sup-screen-work-button timer_sup-screen-work-button-minus-30"> -30</button>
           <button class="timer_sup-screen-work-button timer_sup-screen-work-button-minus-10"> -10</button>
-          <button class="timer_sup-screen-work-button timer_sup-screen-work-button-minus-5"> -5</button>
-          <button class="timer_sup-screen-work-button timer_sup-screen-work-button-plus-5"> +5</button>
+          <button class="timer_sup-screen-work-button timer_sup-screen-work-button-minus-1"> -1</button>
+          <button class="timer_sup-screen-work-button timer_sup-screen-work-button-plus-1"> +1</button>
           <button class="timer_sup-screen-work-button timer_sup-screen-work-button-plus-10"> +10</button>
           <button class="timer_sup-screen-work-button timer_sup-screen-work-button-plus-30"> +30</button>
         </div>
@@ -1233,30 +1233,30 @@ const workButtonMinus10 = document.querySelector('.timer_sup-screen-work-button-
     }
   });
 
-  // Минус 5 секунд
-const workButtonMinus5 = document.querySelector('.timer_sup-screen-work-button-minus-5');
+  // Минус 1 секунда
+const workButtonMinus5 = document.querySelector('.timer_sup-screen-work-button-minus-1');
 workButtonMinus5.addEventListener('click', function() {
-  if (timer_supWorkSeconds > 4 ) {
-    timer_supWorkSeconds = timer_supWorkSeconds - 5
+  if (timer_supWorkSeconds  >= 1 ) {
+    timer_supWorkSeconds = timer_supWorkSeconds - 1
     FormattedSupWorkTime()
   }
-  else if (timer_supWorkMinutes > 0 && timer_supWorkSeconds <= 4 ) {
+  else if (timer_supWorkMinutes > 0 && timer_supWorkSeconds == 0 ) {
     timer_supWorkMinutes  = timer_supWorkMinutes - 1
-    timer_supWorkSeconds = timer_supWorkSeconds - 5 + 60
+    timer_supWorkSeconds = timer_supWorkSeconds - 1 + 60
     FormattedSupWorkTime()
   }
 });
 
-   // Плюс 5 секунд
-   const workButtonPlus5 = document.querySelector('.timer_sup-screen-work-button-plus-5');
+   // Плюс 1 секунда
+   const workButtonPlus5 = document.querySelector('.timer_sup-screen-work-button-plus-1');
    workButtonPlus5.addEventListener('click', function() {
-     if (timer_supWorkSeconds < 54 ) {
-       timer_supWorkSeconds = timer_supWorkSeconds + 5
+     if (timer_supWorkSeconds < 59 ) {
+       timer_supWorkSeconds = timer_supWorkSeconds + 1
        FormattedSupWorkTime()
      }
-     else if (timer_supWorkSeconds > 54 ) {
+     else if (timer_supWorkSeconds == 59 ) {
        timer_supWorkMinutes = timer_supWorkMinutes + 1
-       timer_supWorkSeconds = timer_supWorkSeconds + 5 - 60
+       timer_supWorkSeconds = timer_supWorkSeconds + 1 - 60
        FormattedSupWorkTime()
      }
    });
