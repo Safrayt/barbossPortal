@@ -53,6 +53,12 @@ function containersAndScreensSizes() {
 // размеры сетки на экранах
     // сетка для #main-screen
     document.querySelector('#main-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.40 + 'px ' + mainContainerHeight*0.5 + 'px ' + mainContainerHeight*1 + 'px ';
+    // сетка для #workoutPrograms-screen
+    document.querySelector('#workoutPrograms-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ';
+        // сетка для #workoutProgram-screen-rutinkaWeeks
+        document.querySelector('#workoutProgram-screen-rutinkaWeeks').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ';
+        // сетка для #workoutProgram-screen-rutinkaDays
+        document.querySelector('#workoutProgram-screen-rutinkaDays').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ';
     // сетка для #exercisesBase-screen
     document.querySelector('#exercisesBase-screen').style.gridTemplateRows = mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.06 + 'px '+ mainContainerHeight*0.08 + 'px ' + mainContainerHeight*0.10 + 'px ' + mainContainerHeight*0.70 + 'px ';
     // сетка для #exercise-screen
@@ -194,13 +200,26 @@ function changeSection() {
         document.querySelector('.slave-container').style.right = slaveContainerWidthRight + 'px'
     }
     if (mainContainerWidthPosition == 2) {
-        slaveContainerWidthRight = mainContainerWidth
+        slaveContainerWidthRight = 1 * mainContainerWidth
         document.querySelector('.slave-container').style.right = slaveContainerWidthRight + 'px'
     }
     if (mainContainerWidthPosition == 3) {
-        slaveContainerWidthRight = mainContainerWidth + mainContainerWidth
+        slaveContainerWidthRight = 2 * mainContainerWidth
         document.querySelector('.slave-container').style.right = slaveContainerWidthRight + 'px'
     }
+    if (mainContainerWidthPosition == 4) {
+        slaveContainerWidthRight = 3 * mainContainerWidth
+        document.querySelector('.slave-container').style.right = slaveContainerWidthRight + 'px'
+    }
+    if (mainContainerWidthPosition == 5) {
+        slaveContainerWidthRight = 4 * mainContainerWidth
+        document.querySelector('.slave-container').style.right = slaveContainerWidthRight + 'px'
+    }
+    if (mainContainerWidthPosition == 6) {
+        slaveContainerWidthRight = 5 * mainContainerWidth
+        document.querySelector('.slave-container').style.right = slaveContainerWidthRight + 'px'
+    }
+    
 }
 
 // Кнопки
@@ -229,6 +248,17 @@ function disableButtons() {
             if (event.target.classList.contains('main-screen-buttons-button')) {
             const buttonText = event.target.innerText;
                 // если кнопка с главного экрана содержит текст
+                if (buttonText === "Программы тренировок") {
+                    // Фунция отключения всех кнопок на 1 секунда для исключения повторного нажатия
+                    disableButtons();
+                    mainContainerWidthPosition = mainContainerWidthPosition + 1
+                    document.querySelector('.slave-container').style.transition = "right 1s ease-in-out";
+                    containersAndScreensSizes()
+                    changeSection()
+                    document.getElementById("workoutPrograms-screen").style.display = "grid";
+                    
+                    setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
+                }
                 if (buttonText === "База упражнений") {
                     // Фунция отключения всех кнопок на 1 секунда для исключения повторного нажатия
                     disableButtons();
@@ -318,12 +348,57 @@ function disableButtons() {
                 }
             }
 
-        }
+            // Программы -> Недели
+            if (event.target.closest('.workoutPrograms-screen-programsList-item')) {
+                const buttonText = event.target.closest('.workoutPrograms-screen-programsList-item').querySelector('.workoutPrograms-screen-programsList-item-text-name').innerText;
+                console.log("Рутинка");
+                if (buttonText === "Рутинка") {                    
+                    // Фунция отключения всех кнопок на 1 секунда для исключения повторного нажатия
+                    disableButtons();
+                    mainContainerWidthPosition = mainContainerWidthPosition + 1
+                    document.querySelector('.slave-container').style.transition = "right 1s ease-in-out";
+                    containersAndScreensSizes()
+                    changeSection()
+                    document.getElementById("workoutProgram-screen-rutinkaWeeks").style.display = "grid";
+                    
+                    setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
+                }
+            }
 
+                // Недели -> Дни (Срабаотыват на все кнопки где есть слово "Неделя")
+                if (event.target.closest('.workoutProgram-screen-rutinkaWeeks-weeksList-item')) {
+                    const buttonText = event.target.closest('.workoutProgram-screen-rutinkaWeeks-weeksList-item').querySelector('.workoutProgram-screen-rutinkaWeeks-weeksList-item-text-name').innerText;
+                    
+                    if (buttonText.includes("Неделя")) {
+                        console.log("Неделя");                  
+                        // Фунция отключения всех кнопок на 1 секунда для исключения повторного нажатия
+                        disableButtons();
+                        mainContainerWidthPosition = mainContainerWidthPosition + 1
+                        document.querySelector('.slave-container').style.transition = "right 1s ease-in-out";
+                        containersAndScreensSizes()
+                        changeSection()
+                        document.getElementById("workoutProgram-screen-rutinkaDays").style.display = "grid";
+                        
+                        setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
+                    }
+                }
+
+    }
 
         // Кнопка перехода на предыдущий экран
         function navButtonBack() {
                const buttonText = event.target.innerText;
+                if (event.target.classList.contains('workoutPrograms-screen-backButton') && buttonText === "Назад") {
+                    // Фунция отключения всех кнопок на 1 секунда для исключения повторного нажатия
+                    disableButtons();
+                    mainContainerWidthPosition = mainContainerWidthPosition - 1
+                    document.querySelector('.slave-container').style.transition = "right 1s ease-in-out";
+                    setTimeout(() => containersAndScreensSizes(), 1000);
+                    changeSection()
+                    setTimeout(() => document.getElementById("workoutPrograms-screen").style.display = "none", 1000);
+                    
+                    setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
+                }
                 if (event.target.classList.contains('exercisesBase-screen-backButton') && buttonText === "Назад") {
                     // Фунция отключения всех кнопок на 1 секунда для исключения повторного нажатия
                     disableButtons();
@@ -373,4 +448,30 @@ function disableButtons() {
                     
                     setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
                 }
+
+                if (event.target.classList.contains('workoutProgram-screen-backButton') && buttonText === "Назад") {
+                    // Фунция отключения всех кнопок на 1 секунда для исключения повторного нажатия
+                    disableButtons();
+                    mainContainerWidthPosition = mainContainerWidthPosition - 1
+                    document.querySelector('.slave-container').style.transition = "right 1s ease-in-out";
+                    setTimeout(() => containersAndScreensSizes(), 1000);
+                    changeSection()
+                    setTimeout(() => document.getElementById("workoutProgram-screen-rutinkaWeeks").style.display = "none", 1000);
+                    
+                    setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
+                }
+
+                if (event.target.classList.contains('workoutProgram-screen-rutinkaDays-backButton') && buttonText === "Назад") {
+                    // Фунция отключения всех кнопок на 1 секунда для исключения повторного нажатия
+                    disableButtons();
+                    mainContainerWidthPosition = mainContainerWidthPosition - 1
+                    document.querySelector('.slave-container').style.transition = "right 1s ease-in-out";
+                    setTimeout(() => containersAndScreensSizes(), 1000);
+                    changeSection()
+                    setTimeout(() => document.getElementById("workoutProgram-screen-rutinkaDays").style.display = "none", 1000);
+                    
+                    setTimeout(() => document.querySelector('.slave-container').style.transition = "none", 1000)
+                }
+                
             }
+        
